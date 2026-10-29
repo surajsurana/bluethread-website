@@ -1,0 +1,1177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bluethread</title>
+<meta name="description" content="Bluethread designs and builds entire business systems, not just websites: custom software, AI agents, automations and websites, connected as one.">
+<meta name="theme-color" content="#05070c">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://bluethreadai.in/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bluethreadai.in/">
+<meta property="og:title" content="Bluethread: AI and business systems">
+<meta property="og:description" content="Entire business systems, not just websites: custom software, AI agents, automations and websites, connected as one.">
+<meta property="og:image" content="https://bluethreadai.in/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#05070c;
+  --bg-2:#0a0e17;
+  --panel:#0d1220;
+  --line:#1a2234;
+  --line-2:#243049;
+  --text:#e9edf5;
+  --text-2:#a3adc2;
+  --text-3:#6b7590;
+  --thread:#2f6bff;
+  --thread-2:#1d4fd8;
+  --signal:#8fd8ff;
+  --signal-soft:rgba(143,216,255,.14);
+  --ok:#5fd4a6;
+  --radius:14px;
+  --max:1200px;
+  --gutter:clamp(16px,4vw,40px);
+  --sans:"Geist",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+::selection{background:var(--thread);color:#fff}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--text-3)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--signal);display:inline-flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:18px;height:1px;background:linear-gradient(90deg,transparent,var(--signal))}
+h1,h2,h3{font-weight:500;letter-spacing:-.025em;line-height:1.08;margin:0}
+h2{font-size:clamp(30px,4vw,48px)}
+h3{font-size:19px;letter-spacing:-.01em;line-height:1.3}
+p{margin:0}
+.lede{color:var(--text-2);font-size:clamp(16px,1.4vw,18px);max-width:56ch}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;height:44px;padding:0 18px;border-radius:999px;font-size:15px;font-weight:500;transition:background .2s,border-color .2s,color .2s;white-space:nowrap;border:1px solid transparent;cursor:pointer;font-family:inherit}
+.btn-primary{background:var(--text);color:var(--bg)}
+.btn-primary:hover{background:#fff}
+.btn-ghost{border-color:var(--line-2);color:var(--text)}
+.btn-ghost:hover{border-color:var(--text-3);background:rgba(255,255,255,.03)}
+.btn .arr{transition:transform .2s}
+.btn:hover .arr{transform:translateX(3px)}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:50;background:rgba(5,7,12,.72);-webkit-backdrop-filter:saturate(140%) blur(14px);backdrop-filter:saturate(140%) blur(14px);border-bottom:1px solid rgba(26,34,52,.7)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo svg{height:22px;width:auto}
+.nav-links{display:flex;gap:28px;font-size:14px;color:var(--text-2)}
+.nav-links a:hover{color:var(--text)}
+.nav .btn{height:36px;font-size:14px;padding:0 14px}
+@media (max-width:860px){.nav-links{display:none}}
+@media (max-width:400px){.nav .btn{padding:0 12px;font-size:13px}}
+
+/* hero */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 70% at 78% 40%,rgba(47,107,255,.14),transparent 70%),radial-gradient(40% 40% at 10% 0%,rgba(143,216,255,.05),transparent 70%);pointer-events:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:24px;align-items:center;min-height:min(707px,calc(100vh - 64px));padding-top:48px;padding-bottom:48px}
+.hero h1{font-size:clamp(36px,4.3vw,62px);font-weight:500;letter-spacing:-.035em;line-height:1.02;margin:22px 0 22px}
+.hero h1 .dim{color:var(--text-3)}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.hero .meta{display:flex;gap:22px;flex-wrap:wrap;margin-top:40px}
+.hero .meta span{display:flex;align-items:center;gap:8px}
+.hero .meta span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 3px rgba(95,212,166,.12)}
+.map{position:relative;border:1px solid var(--line);border-radius:18px;background:linear-gradient(180deg,rgba(13,18,32,.85),rgba(8,11,19,.85));overflow:hidden}
+.map-head{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line)}
+.map-head .dots{display:flex;gap:6px}
+.map-head .dots i{width:8px;height:8px;border-radius:50%;background:var(--line-2)}
+.map svg.net{width:100%;height:auto}
+.map-log{border-top:1px solid var(--line);padding:10px 16px;height:64px;overflow:hidden;font-family:var(--mono);font-size:11.5px;color:var(--text-3);line-height:22px}
+.map-log .row{display:flex;gap:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.map-log .row b{font-weight:400;color:var(--ok)}
+.map-log .row em{font-style:normal;color:var(--text-2)}
+@media (max-width:960px){
+  .hero .wrap{grid-template-columns:minmax(0,1fr);min-height:0;padding-top:40px;padding-bottom:40px;gap:40px}
+}
+
+/* net svg */
+.thread{fill:none;stroke:var(--line-2);stroke-width:1.2}
+.thread-glow{fill:none;stroke:var(--thread);stroke-width:1.2;opacity:.35}
+.pulse{fill:none;stroke:var(--signal);stroke-width:2;stroke-linecap:round}
+.pulse-halo{fill:none;stroke:var(--thread);stroke-width:7;stroke-linecap:round;opacity:.22}
+.node rect{fill:#0b1120;stroke:var(--line-2);stroke-width:1}
+.node.core rect{stroke:var(--thread);fill:#0c1530}
+.node text{font-family:var(--mono);font-size:11px;fill:var(--text-2);letter-spacing:.03em}
+.node.core text{fill:var(--text)}
+.node circle{fill:var(--thread)}
+.node.lit rect{stroke:var(--signal)}
+.node.lit circle{fill:var(--signal)}
+.node rect,.node circle{transition:stroke .4s,fill .4s}
+
+/* sections */
+section{padding:clamp(72px,10vw,128px) 0;border-bottom:1px solid var(--line)}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;align-items:end;margin-bottom:56px}
+.sec-head h2{margin-top:18px}
+@media (max-width:860px){.sec-head{grid-template-columns:minmax(0,1fr);gap:18px;margin-bottom:40px}}
+
+/* build grid */
+.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--line);gap:1px}
+.cell{background:var(--bg);padding:28px 24px 30px;display:flex;flex-direction:column;gap:14px;min-height:280px;transition:background .25s}
+.cell:hover{background:var(--bg-2)}
+.cell .ico{width:40px;height:40px;border-radius:10px;border:1px solid var(--line-2);display:grid;place-items:center;color:var(--signal);margin-bottom:10px}
+.cell .ico svg{width:20px;height:20px}
+.cell p{color:var(--text-2);font-size:15px}
+.cell .tags{margin-top:auto;display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-family:var(--mono);font-size:11px;color:var(--text-3);border:1px solid var(--line);border-radius:6px;padding:3px 7px}
+@media (max-width:1060px){.grid4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.grid4{grid-template-columns:1fr}.cell{min-height:0}}
+
+/* agents */
+.agent-live{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:16px}
+.panel{border:1px solid var(--line);border-radius:18px;background:linear-gradient(180deg,rgba(13,18,32,.85),rgba(8,11,19,.85));overflow:hidden;position:relative;display:flex;flex-direction:column;min-width:0}
+.panel::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 55% at 50% 55%,rgba(47,107,255,.10),transparent 70%);pointer-events:none}
+.panel .map-head{position:relative}
+.loop-wrap{position:relative;flex:1;display:grid;place-items:center;padding:14px 16px 10px}
+svg.loop{width:100%;max-width:460px;height:auto}
+.loop-wrap{padding:18px 20px 16px}
+.lp-ring{fill:none;stroke:var(--line-2);stroke-width:1.2}
+.lp-ring-glow{fill:none;stroke:var(--thread);stroke-width:1.2;opacity:.3;stroke-dasharray:2 6}
+.lp-trail{fill:none;stroke:var(--signal);stroke-width:2;stroke-linecap:round}
+.lp-halo{fill:none;stroke:var(--thread);stroke-width:8;stroke-linecap:round;opacity:.22}
+.lp-dot{fill:var(--signal)}
+.lp-node rect{fill:#0b1120;stroke:var(--line-2);stroke-width:1;transition:stroke .35s,fill .35s}
+.lp-node text{font-family:var(--mono);font-size:11.5px;fill:var(--text-2);letter-spacing:.04em;transition:fill .35s}
+.lp-node text .n{fill:var(--text-3)}
+.lp-node.on rect{stroke:var(--signal);fill:#0c1530}
+.lp-node.on text{fill:var(--text)}
+.lp-node.wait rect{stroke:var(--signal);stroke-dasharray:4 3}
+.lp-core rect{fill:#0c1530;stroke:var(--thread);stroke-width:1}
+.lp-core .t1{font-family:var(--mono);font-size:12px;fill:var(--text);letter-spacing:.04em}
+.lp-core .t2{font-family:var(--mono);font-size:10.5px;fill:var(--signal);letter-spacing:.06em}
+.console-body{position:relative;height:350px;padding:14px 16px 16px;font-family:var(--mono);font-size:12px;line-height:1.5;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;overflow:hidden;-webkit-mask-image:linear-gradient(to bottom,transparent,#000 26%);mask-image:linear-gradient(to bottom,transparent,#000 26%)}
+.cl{display:grid;grid-template-columns:62px 54px minmax(0,1fr);gap:10px;align-items:baseline;color:var(--text-2);flex:0 0 auto}
+.cl time{color:var(--text-3)}
+.cl .k{color:var(--signal);text-transform:uppercase;font-size:10.5px;letter-spacing:.06em}
+.cl .k.act{color:var(--ok)}
+.cl .k.report{color:var(--text)}
+.cl .m{min-width:0;overflow-wrap:anywhere}
+.cl.new,.appr.new{animation:clin .4s ease both}
+@keyframes clin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.appr{flex:0 0 auto;margin:2px 0 2px 126px;border:1px dashed rgba(143,216,255,.45);border-radius:10px;padding:11px 13px;background:rgba(143,216,255,.05);display:flex;justify-content:space-between;align-items:center;gap:12px;transition:border-color .35s,background .35s}
+.appr p{font-family:var(--sans);font-size:14px;color:var(--text);line-height:1.4}
+.appr small{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--text-3);margin-top:3px}
+.appr .st{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;padding:4px 9px;border-radius:999px;border:1px solid rgba(143,216,255,.45);color:var(--signal);white-space:nowrap;display:inline-flex;align-items:center;gap:7px}
+.appr .st::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;animation:blink 1s ease-in-out infinite}
+.appr.ok{border-style:solid;border-color:rgba(95,212,166,.4);background:rgba(95,212,166,.05)}
+.appr.ok .st{border-color:rgba(95,212,166,.45);color:var(--ok)}
+.appr.ok .st::before{animation:none}
+.appr.auto{border-style:solid;border-color:var(--line-2);background:rgba(255,255,255,.02)}
+.appr.auto .st{border-color:var(--line-2);color:var(--text-2)}
+.appr.auto .st::before{animation:none}
+@keyframes blink{50%{opacity:.25}}
+.loop-steps{list-style:none;margin:16px 0 0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.loop-steps li{background:var(--bg);padding:20px 18px 22px;transition:background .35s}
+.loop-steps .num{font-family:var(--mono);font-size:12px;color:var(--text-3);display:flex;align-items:center;gap:10px;margin-bottom:16px;transition:color .35s}
+.loop-steps .num::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line-2),transparent)}
+.loop-steps b{display:block;font-weight:500;font-size:17px;letter-spacing:-.01em;margin-bottom:6px}
+.loop-steps p{color:var(--text-2);font-size:14.5px;line-height:1.55}
+.loop-steps li.on{background:linear-gradient(180deg,rgba(47,107,255,.11),var(--bg) 85%)}
+.loop-steps li.on .num{color:var(--signal)}
+.agents-lower{margin-top:64px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:56px}
+.agents-lower h3{font-size:19px}
+.atwork,.aprinc{list-style:none;margin:18px 0 0;padding:0;border-top:1px solid var(--line)}
+.atwork li{display:grid;grid-template-columns:92px minmax(0,1fr);gap:16px;padding:15px 0;border-bottom:1px solid var(--line);color:var(--text-2);font-size:15.5px}
+.atwork .t{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--signal);padding-top:4px}
+.aprinc li{display:flex;align-items:center;gap:14px;padding:15px 0;border-bottom:1px solid var(--line);font-size:15.5px;color:var(--text)}
+.aprinc li i{flex:0 0 22px;height:22px;border-radius:50%;border:1px solid var(--signal);box-shadow:0 0 0 4px var(--signal-soft);display:grid;place-items:center}
+.aprinc li i::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--signal)}
+@media (max-width:1000px){.loop-steps{grid-template-columns:minmax(0,1fr)}.loop-steps li{display:grid;grid-template-columns:120px minmax(0,1fr);column-gap:16px;padding:16px 18px}.loop-steps .num{grid-row:span 2;margin:3px 0 0}.loop-steps .num::after{display:none}}
+@media (max-width:960px){.agent-live{grid-template-columns:minmax(0,1fr)}.agents-lower{grid-template-columns:minmax(0,1fr);gap:44px;margin-top:48px}}
+@media (max-width:560px){
+  .console-body{height:340px;font-size:11.5px;padding:12px 14px 14px}
+  .cl{grid-template-columns:56px minmax(0,1fr);row-gap:0}
+  .cl .k{grid-column:2}.cl .m{grid-column:2}.cl time{grid-row:span 2}
+  .appr{margin-left:66px;flex-direction:column;align-items:flex-start;gap:8px}
+  .loop-steps li{grid-template-columns:minmax(0,1fr)}.loop-steps .num{grid-row:auto;margin-bottom:8px}
+  .atwork li{grid-template-columns:minmax(0,1fr);gap:4px}
+}
+
+/* portfolio */
+.systems{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.sys{border:1px solid var(--line);border-radius:var(--radius);background:var(--bg-2);padding:26px;display:flex;flex-direction:column;gap:16px;transition:border-color .25s}
+.sys:hover{border-color:var(--line-2)}
+.sys-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.sys-kind{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3)}
+.sys h3{font-size:22px;margin-top:6px}
+.badge{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;padding:4px 8px;border-radius:999px;border:1px solid var(--line-2);color:var(--text-2);white-space:nowrap}
+.badge.live{border-color:rgba(95,212,166,.4);color:var(--ok)}
+.sys p{color:var(--text-2);font-size:15px}
+.flow{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:10px;margin-top:auto;padding:14px;border:1px solid var(--line);border-radius:10px;background:var(--bg)}
+.flow ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:5px}
+.flow li{font-family:var(--mono);font-size:11.5px;color:var(--text-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.flow li::before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--line-2);margin-right:8px;vertical-align:middle}
+.flow .out li{text-align:right}
+.flow .out li::before{display:none}
+.flow .out li::after{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--thread);margin-left:8px;vertical-align:middle}
+.flow .hub{font-family:var(--mono);font-size:11px;color:var(--text);padding:7px 10px;border:1px solid var(--thread);border-radius:8px;background:rgba(47,107,255,.1);position:relative;white-space:nowrap}
+.flow .hub::before,.flow .hub::after{content:"";position:absolute;top:50%;width:10px;height:1px;background:var(--thread)}
+.flow .hub::before{right:100%}.flow .hub::after{left:100%}
+.sys a.ext{font-size:14px;color:var(--signal);display:inline-flex;gap:6px;align-items:center}
+.sys a.ext:hover{text-decoration:underline;text-underline-offset:3px}
+@media (max-width:900px){.systems{grid-template-columns:1fr}}
+/* demo screens (open in the lightbox) */
+.sys.has-demo{cursor:pointer}
+.sys.has-demo:hover{border-color:var(--text-3);background:linear-gradient(180deg,rgba(47,107,255,.05),var(--bg-2) 60%)}
+.sys .demo-open{appearance:none;-webkit-appearance:none;background:none;border:0;padding:0;margin:0;font:inherit;font-size:14px;color:var(--signal);display:inline-flex;gap:6px;align-items:center;cursor:pointer;align-self:flex-start}
+.sys .demo-open .arr{transition:transform .2s}
+.sys .demo-open:hover,.sys.has-demo:hover .demo-open{text-decoration:underline;text-underline-offset:3px}
+.sys.has-demo:hover .demo-open .arr{transform:translateX(3px)}
+.demo-set{display:none}
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:100;background:rgba(3,5,9,.93);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:56px 72px 24px;opacity:0;visibility:hidden;transition:opacity .2s,visibility 0s linear .2s}
+.lb.open{opacity:1;visibility:visible;transition:opacity .2s}
+.lb figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:16px;max-width:100%;min-height:0}
+.lb .frame{position:relative;display:flex;align-items:center;justify-content:center;min-height:120px;min-width:120px}
+.lb img{max-width:min(1280px,calc(100vw - 144px));max-height:calc(100vh - 190px);width:auto;height:auto;border-radius:10px;border:1px solid var(--line-2);background:#0b1120;box-shadow:0 24px 60px rgba(0,0,0,.6)}
+.lb img.phone{border-radius:22px;border:5px solid #0b1120;outline:1px solid var(--line-2)}
+.lb .spin{position:absolute;font-family:var(--mono);font-size:11px;color:var(--text-3)}
+.lb figcaption{max-width:72ch;text-align:center;color:var(--text-2);font-size:14.5px;line-height:1.5}
+.lb figcaption .mono{display:block;margin-bottom:6px;font-size:10.5px}
+.lb-btn{position:absolute;width:44px;height:44px;border-radius:50%;border:1px solid var(--line-2);background:rgba(13,18,32,.85);color:var(--text);display:grid;place-items:center;cursor:pointer;font:inherit;font-size:18px;padding:0}
+.lb-btn:hover{border-color:var(--text-3)}
+.lb-btn svg{width:18px;height:18px}
+.lb-close{top:14px;right:14px}
+.lb-prev{left:16px;top:50%;margin-top:-22px}
+.lb-next{right:16px;top:50%;margin-top:-22px}
+.lb-btn[hidden]{display:none}
+html.lb-lock,html.lb-lock body{overflow:hidden}
+@media (max-width:640px){
+  .lb{padding:60px 16px 84px}
+  .lb img{max-width:calc(100vw - 32px);max-height:calc(100vh - 230px)}
+  .lb-prev,.lb-next{top:auto;bottom:22px;margin-top:0}
+  .lb-prev{left:calc(50% - 54px)}.lb-next{right:calc(50% - 54px)}
+  .lb figcaption{font-size:13.5px}
+}
+@supports (height:100dvh){
+  .lb img{max-height:calc(100dvh - 190px)}
+  @media (max-width:640px){.lb img{max-height:calc(100dvh - 230px)}}
+}
+@media (max-width:420px){.flow{grid-template-columns:1fr;justify-items:start}.flow .out li{text-align:left}.flow .out li::after{display:none}.flow .out li::before{display:inline-block;background:var(--thread)}.flow .hub::before,.flow .hub::after{display:none}}
+
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:64px;align-items:start}
+.pthread{border:1px solid var(--line);border-radius:18px;background:linear-gradient(180deg,rgba(13,18,32,.85),rgba(8,11,19,.85));overflow:hidden;position:relative;margin-top:44px}
+.pthread::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 50% at 20% 0%,rgba(47,107,255,.12),transparent 70%);pointer-events:none}
+.pthread .map-head{position:relative}
+.pthread ol{position:relative;list-style:none;margin:0;padding:26px 24px 28px 24px;display:flex;flex-direction:column;gap:22px}
+.pthread ol::before{content:"";position:absolute;left:34px;top:34px;bottom:36px;width:1.5px;background:linear-gradient(180deg,var(--thread),var(--signal) 55%,var(--thread-2));opacity:.75}
+.pthread li{position:relative;display:flex;align-items:center;gap:16px;font-family:var(--mono);font-size:12px;letter-spacing:.03em;color:var(--text-2)}
+.pthread li i{flex:0 0 22px;height:22px;border-radius:50%;border:1px solid var(--line-2);background:#0b1120;position:relative;z-index:1;display:grid;place-items:center}
+.pthread li i::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--thread)}
+.pthread li.on{color:var(--text)}
+.pthread li.on i{border-color:var(--signal);box-shadow:0 0 0 4px var(--signal-soft)}
+.pthread li.on i::after{background:var(--signal)}
+.pthread li span{flex:1;min-width:0;padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:rgba(5,7,12,.6)}
+.about h2{margin:18px 0 8px}
+.about .role{font-family:var(--mono);font-size:13px;color:var(--signal);margin-bottom:24px}
+.about p+p{margin-top:16px}
+.about p{color:var(--text-2)}
+.princ{margin-top:36px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.princ div{background:var(--bg);padding:18px 18px 20px}
+.princ b{display:block;font-weight:500;font-size:15px;margin-bottom:4px}
+.princ span{color:var(--text-3);font-size:14px;line-height:1.5;display:block}
+@media (max-width:900px){.about{grid-template-columns:minmax(0,1fr);gap:8px}.pthread{max-width:520px;margin-top:28px}}
+@media (max-width:480px){.princ{grid-template-columns:1fr}}
+
+/* contact */
+.contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:56px}
+.contact h2{margin:18px 0 18px}
+.channels{margin-top:36px;display:flex;flex-direction:column;gap:10px}
+.channel{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 18px;border:1px solid var(--line);border-radius:12px;transition:border-color .2s}
+.channel:hover{border-color:var(--line-2)}
+.channel .k{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3)}
+.channel .v{font-size:15px}
+form{border:1px solid var(--line);border-radius:18px;padding:28px;background:var(--bg-2);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+.field{display:flex;flex-direction:column;gap:7px}
+.field.full{grid-column:1/-1}
+label,.lbl{font-size:13px;color:var(--text-2)}
+input,select,textarea{font:inherit;font-size:15px;color:var(--text);background:var(--bg);border:1px solid var(--line-2);border-radius:10px;padding:11px 13px;width:100%;transition:border-color .2s,box-shadow .2s;-webkit-appearance:none;appearance:none}
+select{background-image:linear-gradient(45deg,transparent 50%,var(--text-3) 50%),linear-gradient(135deg,var(--text-3) 50%,transparent 50%);background-position:calc(100% - 18px) 50%,calc(100% - 13px) 50%;background-size:5px 5px;background-repeat:no-repeat;padding-right:36px}
+textarea{min-height:110px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--thread);box-shadow:0 0 0 3px rgba(47,107,255,.2)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips label{cursor:pointer}
+.chips input{position:absolute;opacity:0;width:1px;height:1px}
+.chips span{display:inline-block;font-size:14px;color:var(--text-2);border:1px solid var(--line-2);border-radius:999px;padding:7px 13px;transition:all .2s}
+.chips input:checked+span{border-color:var(--thread);color:var(--text);background:rgba(47,107,255,.14)}
+.chips input:focus-visible+span{box-shadow:0 0 0 3px rgba(47,107,255,.3)}
+.form-foot{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-top:4px}
+.form-foot small{color:var(--text-3);font-size:13px}
+.form-msg{grid-column:1/-1;font-family:var(--mono);font-size:12.5px;color:var(--ok);display:none}
+.form-msg.show{display:block}
+@media (max-width:900px){.contact{grid-template-columns:minmax(0,1fr);gap:40px}}
+@media (max-width:560px){form{grid-template-columns:minmax(0,1fr);padding:20px}}
+
+/* footer */
+footer{padding:40px 0 56px}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+footer .fl{display:flex;gap:22px;color:var(--text-3);font-size:14px;flex-wrap:wrap}
+footer .fl a:hover{color:var(--text)}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+.no-js .reveal{opacity:1;transform:none}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  *{transition-duration:.01ms!important;animation-duration:.01ms!important}
+}
+:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
+</style>
+</head>
+<body class="no-js">
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="wrap">
+    <a href="#top" class="logo" aria-label="Bluethread home">
+      <!-- Wordmark: a node with a thread leaving it, then the name in lowercase -->
+      <svg viewBox="0 0 168 28" role="img" aria-label="Bluethread">
+        <defs>
+          <linearGradient id="lg-thread" x1="0" x2="1" y1="0" y2="0">
+            <stop offset="0" stop-color="#2f6bff"/>
+            <stop offset="1" stop-color="#8fd8ff"/>
+          </linearGradient>
+        </defs>
+        <circle cx="6" cy="20" r="3.2" fill="#2f6bff"/>
+        <path d="M6 20 C 12 20, 12 8, 19 8" fill="none" stroke="url(#lg-thread)" stroke-width="1.8" stroke-linecap="round"/>
+        <circle cx="21" cy="8" r="3.2" fill="none" stroke="#8fd8ff" stroke-width="1.6"/>
+        <text x="32" y="20.5" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="500" letter-spacing="-0.6" fill="#e9edf5">bluethread</text>
+      </svg>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#build">What we build</a>
+      <a href="#agents">AI agents</a>
+      <a href="#systems">Systems</a>
+      <a href="#about">About</a>
+    </nav>
+    <a href="#contact" class="btn btn-primary">Start a project</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="hero" style="padding:0">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">AI &amp; business systems</span>
+      <h1>The threads that run your business.<span class="dim"> Designed, built and kept running.</span></h1>
+      <p class="lede">Bluethread builds custom software, websites, automations and AI systems that connect the way your company already works: orders, accounts, ads, WhatsApp and your team, in one system that talks to itself.</p>
+      <div class="ctas">
+        <a href="#contact" class="btn btn-primary">Start a project <span class="arr" aria-hidden="true">&rarr;</span></a>
+        <a href="#systems" class="btn btn-ghost">See systems we've built</a>
+      </div>
+      <div class="meta mono">
+        <span>India</span><span>United States</span><span>Worldwide, remote</span>
+      </div>
+    </div>
+
+    <div class="map" aria-hidden="true">
+      <div class="map-head">
+        <div class="dots"><i></i><i></i><i></i></div>
+        <span class="mono">system map</span>
+        <span class="mono" style="color:var(--ok)">&#9679; running</span>
+      </div>
+      <svg class="net" id="net" viewBox="0 0 640 400" preserveAspectRatio="xMidYMid meet"></svg>
+      <div class="map-log" id="log"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHAT WE BUILD ============ -->
+<section id="build">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow">What we build</span>
+        <h2>Entire business systems, not just websites.</h2>
+      </div>
+      <p class="lede">Software, AI agents, automations and websites, designed as one connected system. A sale, an invoice and a WhatsApp message all end up in the same place.</p>
+    </div>
+
+    <div class="grid4 reveal">
+      <div class="cell">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 9v11"/></svg></div>
+        <h3>Custom business software</h3>
+        <p>Order, inventory, production and accounts software shaped to how your company actually runs. Web-based, multi-user, with roles and audit trails.</p>
+        <div class="tags"><span class="tag">ERP</span><span class="tag">SaaS</span><span class="tag">Dashboards</span></div>
+      </div>
+      <div class="cell">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/><rect x="7" y="7" width="10" height="10" rx="2"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg></div>
+        <h3>AI systems</h3>
+        <p>AI that does a defined job inside your business, with a human approving anything that matters. Answers questions, drafts, classifies and acts.</p>
+        <div class="tags"><span class="tag">Agents</span><span class="tag">Approvals</span><span class="tag">LLMs</span></div>
+      </div>
+      <div class="cell">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="5" cy="6" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="12" cy="18" r="2"/><path d="M7 6h10M6 8l5 8M18 8l-5 8"/></svg></div>
+        <h3>Automations</h3>
+        <p>The repetitive work between tools, done for you: messages sent, records updated, reports delivered, approvals routed to the right person.</p>
+        <div class="tags"><span class="tag">WhatsApp</span><span class="tag">Telegram</span><span class="tag">APIs</span></div>
+      </div>
+      <div class="cell">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg></div>
+        <h3>Websites</h3>
+        <p>Websites and online stores built as the front door of your system, connected to orders, enquiries and accounts behind them.</p>
+        <div class="tags"><span class="tag">E-commerce</span><span class="tag">SEO</span><span class="tag">Performance</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AI AGENTS ============ -->
+<section id="agents">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow">AI agents</span>
+        <h2>AI agents that work inside your business, around the clock.</h2>
+      </div>
+      <p class="lede">An agent is software with one clear job. It watches your systems, notices when something needs doing, works out the next step, and either does it or asks a person first.</p>
+    </div>
+
+    <div class="agent-live reveal" id="agent-live" aria-hidden="true">
+      <div class="panel">
+        <div class="map-head"><div class="dots"><i></i><i></i><i></i></div><span class="mono">agent loop</span><span class="mono" style="color:var(--ok)">&#9679; live</span></div>
+        <div class="loop-wrap"><svg class="loop" id="loop" viewBox="28 24 364 296" preserveAspectRatio="xMidYMid meet"></svg></div>
+      </div>
+      <div class="panel">
+        <div class="map-head"><div class="dots"><i></i><i></i><i></i></div><span class="mono">agent console</span><span class="mono" id="ag-status" style="color:var(--ok)">&#9679; watching</span></div>
+        <div class="console-body" id="ag-log"></div>
+      </div>
+    </div>
+
+    <ol class="loop-steps reveal" id="loop-steps">
+      <li><div class="num">01</div><div><b>Watch</b><p>Orders, enquiries, ad results, bills and messages come in as they happen.</p></div></li>
+      <li><div class="num">02</div><div><b>Decide</b><p>The agent checks them against your rules and targets, and drafts the next step.</p></div></li>
+      <li><div class="num">03</div><div><b>Ask, when it matters</b><p>Money, customers and your records go to a person for a one-tap yes or no. Routine work skips this step.</p></div></li>
+      <li><div class="num">04</div><div><b>Act</b><p>Routine work runs straight away, everything else once approved. The agent then checks that it worked.</p></div></li>
+      <li><div class="num">05</div><div><b>Report</b><p>You get a short summary, and every action is logged.</p></div></li>
+    </ol>
+
+    <div class="agents-lower">
+      <div class="reveal">
+        <h3>Agents at work today</h3>
+        <ul class="atwork">
+          <li><span class="t">Ads</span><span>Ads agents watch results and report on their own. Budget and creative changes go live after one tap.</span></li>
+          <li><span class="t">Accounts</span><span>An accounts agent answers questions from the books instantly, and drafts bill entries for approval.</span></li>
+          <li><span class="t">Sales</span><span>A sales agent labels every WhatsApp enquiry by how serious the lead is, on its own.</span></li>
+          <li><span class="t">Search</span><span>Search agents check, on schedule, whether AI assistants recommend a brand.</span></li>
+        </ul>
+      </div>
+      <div class="reveal">
+        <h3>Principles</h3>
+        <ul class="aprinc">
+          <li><i></i><span>Routine work runs on its own.</span></li>
+          <li><i></i><span>Money, customers and records wait for a yes.</span></li>
+          <li><i></i><span>Every action is logged.</span></li>
+          <li><i></i><span>Each agent does only the job it is given.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SYSTEMS BUILT ============ -->
+<section id="systems">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow">Systems built</span>
+        <h2>Built and running in operating businesses.</h2>
+      </div>
+      <p class="lede">Each one shown as a system: what goes in, what it automates, what comes out. No client data appears here.</p>
+    </div>
+
+    <div class="systems">
+
+      <!-- VERIFIED 2026-10-27 with product session -->
+      <article class="sys reveal">
+        <div class="sys-top">
+          <div><div class="sys-kind">SaaS product</div><h3>Stitchflow</h3></div>
+          <span class="badge live">Available</span>
+        </div>
+        <p>Order management software for boutiques, fashion designers and bridal studios: orders, measurements, production and customer updates in one place. A Bluethread product with its own brand.</p>
+        <div class="flow">
+          <ul><li>Orders</li><li>Measurements</li><li>Customers</li></ul>
+          <div class="hub">stitchflow</div>
+          <ul class="out"><li>Production</li><li>WhatsApp updates</li><li>Reports</li></ul>
+        </div>
+        <a class="ext" href="https://stitchflow.in" target="_blank" rel="noopener">stitchflow.in <span aria-hidden="true">&#8599;</span></a>
+      </article>
+
+      <!-- VERIFIED 2026-10-27 with product session -->
+      <article class="sys reveal">
+        <div class="sys-top">
+          <div><div class="sys-kind">Custom ERP</div><h3>Texport</h3></div>
+          <span class="badge live">Available</span>
+        </div>
+        <p>An export ERP for a textile business, covering the trade from enquiry and order through production and stock to packing, export invoicing and shipping documents.</p>
+        <div class="flow">
+          <ul><li>Buyer orders</li><li>Products</li><li>Suppliers</li></ul>
+          <div class="hub">texport</div>
+          <ul class="out"><li>Commercial invoices</li><li>Packing lists</li><li>Order status</li></ul>
+        </div>
+        <a class="ext" href="https://texport.co.in" target="_blank" rel="noopener">texport.co.in <span aria-hidden="true">&#8599;</span></a>
+      </article>
+
+      <!-- VERIFIED 2026-10-27 with product session -->
+      <article class="sys reveal has-demo">
+        <div class="sys-top">
+          <div><div class="sys-kind">AI system</div><h3>AI Meta Ads system</h3></div>
+          <span class="badge live">Available</span>
+        </div>
+        <p>AI agents plan, monitor and propose changes to Meta ad campaigns. Nothing goes live until a person approves it with one tap.</p>
+        <div class="flow">
+          <ul><li>Ad performance</li><li>Enquiry quality</li><li>Sales &amp; targets</li></ul>
+          <div class="hub">ai planner</div>
+          <ul class="out"><li>Proposals</li><li>One-tap approval</li><li>Live changes</li></ul>
+        </div>
+        <button type="button" class="demo-open" aria-haspopup="dialog">View demo screens <span class="arr" aria-hidden="true">&rarr;</span></button>
+        <div class="demo-set" data-title="AI Meta Ads system" aria-hidden="true">
+            <i data-full="demo/meta-ads/approval.png" data-w="860" data-h="1072" data-phone="1" data-alt="Approval request in Telegram" data-cap="A proposed change arrives in Telegram with the budget, the spending limit and a rollback rule. One tap approves, rejects or holds it."></i>
+            <i data-full="demo/meta-ads/weekly-report.png" data-w="860" data-h="1242" data-phone="1" data-alt="Weekly ads report" data-cap="The weekly report: spend, orders, cost per order and enquiry quality, with the plans waiting for approval."></i>
+            <i data-full="demo/meta-ads/evolution-proposal.png" data-w="860" data-h="1154" data-phone="1" data-alt="System improvement proposal" data-cap="An improvement idea each month for the system itself, with the evidence, the risk and a small first test."></i>
+        </div>
+      </article>
+
+      <!-- VERIFIED 2026-10-27 with product session -->
+      <article class="sys reveal has-demo">
+        <div class="sys-top">
+          <div><div class="sys-kind">AI system</div><h3>AI Accountant</h3></div>
+          <span class="badge live">Available</span>
+        </div>
+        <p>Ask your accounts a question in chat and get the answer from Tally Prime. Send a bill photo and it is drafted, approved by the sender and entered into Tally automatically.</p>
+        <div class="flow">
+          <ul><li>Tally Prime</li><li>Questions in chat</li><li>Bill photos</li></ul>
+          <div class="hub">ai accountant</div>
+          <ul class="out"><li>Answers</li><li>Draft entries</li><li>Posted vouchers</li></ul>
+        </div>
+        <button type="button" class="demo-open" aria-haspopup="dialog">View demo screens <span class="arr" aria-hidden="true">&rarr;</span></button>
+        <div class="demo-set" data-title="AI Accountant" aria-hidden="true">
+            <i data-full="demo/ai-accountant/ai_accountant_1_question.png" data-w="1040" data-h="1800" data-phone="1" data-alt="Question answered from Tally" data-cap="A question in plain English, answered from the Tally ledger balances. This is the web chat; WhatsApp is not live yet."></i>
+            <i data-full="demo/ai-accountant/ai_accountant_2_bill_draft.png" data-w="1040" data-h="1800" data-phone="1" data-alt="Bill drafted for approval" data-cap="A bill photo becomes a draft purchase entry, waiting for the sender to approve it. This is the web chat; WhatsApp is not live yet."></i>
+            <i data-full="demo/ai-accountant/ai_accountant_3_bill_posted.png" data-w="1040" data-h="1800" data-phone="1" data-alt="Bill posted into Tally" data-cap="After approval the entry is posted into Tally and the voucher number is shown. This is the web chat; WhatsApp is not live yet."></i>
+        </div>
+      </article>
+
+      <!-- VERIFIED 2026-10-27 with product session -->
+      <article class="sys reveal has-demo">
+        <div class="sys-top">
+          <div><div class="sys-kind">AI system</div><h3>AI Sales Intelligence</h3></div>
+          <span class="badge live">Available</span>
+        </div>
+        <p>Reads every WhatsApp enquiry, judges how serious the lead is, and traces it back to the ad that brought it in, so ads are judged by the quality of the enquiries they bring, not just their cost. A team inbox of our own is in build.</p>
+        <div class="flow">
+          <ul><li>WhatsApp enquiries</li><li>Ad source</li><li>Sales team replies</li></ul>
+          <div class="hub">sales ai</div>
+          <ul class="out"><li>Lead quality</li><li>Feedback to ads</li><li>Team inbox (in build)</li></ul>
+        </div>
+        <button type="button" class="demo-open" aria-haspopup="dialog">View demo screens <span class="arr" aria-hidden="true">&rarr;</span></button>
+        <div class="demo-set" data-title="AI Sales Intelligence" aria-hidden="true">
+            <i data-full="demo/aisi/aisi-1-lead-quality-all.png" data-w="2408" data-h="1684" data-alt="Lead quality review, all enquiries" data-cap="Every enquiry is labelled junk, browsing, serious or converted, with the reason and the ad it came from. The team confirms or corrects each label."></i>
+            <i data-full="demo/aisi/aisi-2-lead-quality-serious.png" data-w="2408" data-h="1684" data-alt="Lead quality review, serious enquiries" data-cap="Filtered to serious enquiries: event dates, trial bookings, budgets shared."></i>
+            <i data-full="demo/aisi/aisi-3-lead-quality-converted.png" data-w="2408" data-h="1684" data-alt="Lead quality review, converted enquiries" data-cap="Filtered to enquiries that became orders, with the order value attached."></i>
+            <i data-full="demo/aisi/aisi-4-feedback-to-ads.png" data-w="2880" data-h="1800" data-alt="How the quality feed is used by the ads team" data-cap="How the quality feed is used by the ads team: enquiry quality per ad, and the anonymised feed behind it."></i>
+        </div>
+      </article>
+
+      <!-- VERIFIED 2026-10-27 with product session -->
+      <article class="sys reveal has-demo">
+        <div class="sys-top">
+          <div><div class="sys-kind">Automation</div><h3>Petty Cash bot</h3></div>
+          <span class="badge live">Available</span>
+        </div>
+        <p>Staff log petty-cash spends, income and hand-overs in a Telegram chat. The bot files each entry by company and cost head, tracks every person's cash balance, and gives owners a live breakdown by cost head or by employee.</p>
+        <div class="flow">
+          <ul><li>Telegram chat</li><li>Companies</li></ul>
+          <div class="hub">petty cash</div>
+          <ul class="out"><li>Categorised spend</li><li>Balances</li><li>Backups</li></ul>
+        </div>
+        <button type="button" class="demo-open" aria-haspopup="dialog">View demo screens <span class="arr" aria-hidden="true">&rarr;</span></button>
+        <div class="demo-set" data-title="Petty Cash bot" aria-hidden="true">
+            <i data-full="demo/petty-cash/1-log-expense.png" data-w="1170" data-h="2532" data-phone="1" data-alt="Logging an expense in Telegram" data-cap="Logging income and an expense: pick a category, enter the amount and a short note."></i>
+            <i data-full="demo/petty-cash/2-entry-and-balance.png" data-w="1170" data-h="2532" data-phone="1" data-alt="Entry filed and balance updated" data-cap="Each entry is confirmed with the person&#x27;s updated cash balance."></i>
+            <i data-full="demo/petty-cash/3-breakdown-by-cost-head.png" data-w="1170" data-h="2532" data-phone="1" data-alt="Breakdown by cost head" data-cap="The owner&#x27;s view: spend this month by cost head, with a tap-through to the details."></i>
+        </div>
+      </article>
+
+
+      <!-- VERIFIED 2026-10-27 with product session (SEO & Discoverability) -->
+      <article class="sys reveal has-demo" style="grid-column:1/-1">
+        <div class="sys-top">
+          <div><div class="sys-kind">Growth system</div><h3>Search &amp; AI visibility</h3></div>
+          <span class="badge live">Available</span>
+        </div>
+        <p>A team of AI agents that looks after a luxury fashion brand's discoverability and conversion: technical SEO audits, content and structured data for Google, weekly search-data tracking, an on-site conversion report each month, and periodic checks on whether AI assistants like Perplexity and ChatGPT recommend the brand.</p>
+        <div class="flow">
+          <ul><li>Website &amp; products</li><li>Search data</li><li>Site analytics</li><li>AI answers</li></ul>
+          <div class="hub">growth ai</div>
+          <ul class="out"><li>Fix specs</li><li>Content &amp; blog</li><li>Visibility reports</li><li>Conversion reports</li></ul>
+        </div>
+        <button type="button" class="demo-open" aria-haspopup="dialog">View demo screens <span class="arr" aria-hidden="true">&rarr;</span></button>
+        <div class="demo-set" data-title="Search &amp; AI visibility" aria-hidden="true">
+            <i data-full="demo/seo/1-ai-visibility-check.png" data-w="2520" data-h="1450" data-alt="AI assistant visibility check" data-cap="A fixed set of questions asked of Perplexity, ChatGPT and Google AI Overview, logged out, with the sources they cite."></i>
+            <i data-full="demo/seo/2-fix-spec.png" data-w="2520" data-h="1448" data-alt="Fix spec for website engineering" data-cap="Findings turned into a prioritised fix spec, each change owned and verified on the live site."></i>
+            <i data-full="demo/seo/3-visibility-report.png" data-w="2520" data-h="1569" data-alt="Visibility and conversion report" data-cap="The report for the month: visits, search terms, the funnel by device and visits from AI assistants."></i>
+        </div>
+      </article>
+
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <div class="wrap about">
+    <div class="reveal">
+      <span class="eyebrow">About</span>
+      <h2>Suraj Surana</h2>
+      <div class="role">AI &amp; Business Systems Architect</div>
+      <p>Bluethread designs and builds the software, automations and AI systems that run a business day to day, from orders and accounts to ads and sales. Every system starts with how your team actually works, not with a template.</p>
+      <p>Every project is led by Suraj Surana, from the first workflow map to launch and beyond, so you always deal with the person who designs your system.</p>
+      <div class="princ">
+        <div><b>Owner's view</b><span>Built by someone who runs businesses, not just software.</span></div>
+        <div><b>Human approval</b><span>Routine work runs on its own. People approve anything that matters.</span></div>
+        <div><b>Your data stays yours</b><span>Private by default. Nothing shown without consent.</span></div>
+        <div><b>Built to last</b><span>Monitored, backed up and looked after.</span></div>
+      </div>
+    </div>
+    <div class="pthread reveal" aria-hidden="true">
+      <div class="map-head"><div class="dots"><i></i><i></i><i></i></div><span class="mono">project thread</span><span class="mono" style="color:var(--ok)">&#9679; one lead</span></div>
+      <ol>
+        <li class="on"><i></i><span>workflow map</span></li>
+        <li><i></i><span>written plan</span></li>
+        <li><i></i><span>design &amp; build</span></li>
+        <li><i></i><span>launch with your team</span></li>
+        <li class="on"><i></i><span>run &amp; improve</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" style="border-bottom:1px solid var(--line)">
+  <div class="wrap contact">
+    <div class="reveal">
+      <span class="eyebrow">Start a project</span>
+      <h2>Tell us what slows your business down.</h2>
+      <p class="lede">A short call to understand your workflow, then a written plan. No obligation.</p>
+      <div class="channels">
+        <!-- Email domain not decided yet (see PENDING #2) -->
+        <a class="channel" href="mailto:suraj.surana@gmail.com"><span><span class="k">Email</span><br><span class="v">suraj.surana@gmail.com</span></span><span aria-hidden="true">&rarr;</span></a>
+        <a class="channel" href="https://wa.me/919920889591" target="_blank" rel="noopener"><span><span class="k">WhatsApp</span><br><span class="v">+91 99208 89591</span></span><span aria-hidden="true">&rarr;</span></a>
+      </div>
+      <p class="channels-note" style="margin-top:14px;font-size:14px;color:var(--text-3)">India, the US or anywhere else: message on WhatsApp or email.</p>
+    </div>
+
+    <form class="reveal" id="form" novalidate>
+      <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name"></div>
+      <div class="field"><label for="f-email">Work email</label><input id="f-email" name="email" type="email" autocomplete="email"></div>
+      <div class="field"><label for="f-co">Company</label><input id="f-co" name="company" autocomplete="organization"></div>
+      <div class="field"><label for="f-country">Country</label>
+        <select id="f-country" name="country">
+          <option>India</option><option>United States</option><option>Other</option>
+        </select>
+      </div>
+      <div class="field full"><span class="lbl">What do you need?</span>
+        <div class="chips">
+          <label><input type="checkbox" name="need" value="software"><span>Business software</span></label>
+          <label><input type="checkbox" name="need" value="website"><span>Website</span></label>
+          <label><input type="checkbox" name="need" value="automation"><span>Automation</span></label>
+          <label><input type="checkbox" name="need" value="ai"><span>AI system</span></label>
+          <label><input type="checkbox" name="need" value="unsure"><span>Not sure yet</span></label>
+        </div>
+      </div>
+      <div class="field full"><label for="f-msg">What should the system do?</label><textarea id="f-msg" name="message" placeholder="e.g. Our orders live in spreadsheets and WhatsApp. We want one place for orders, production and customer updates."></textarea></div>
+      <div class="form-foot">
+        <small>We reply within one working day.</small>
+        <button type="submit" class="btn btn-primary">Send enquiry <span class="arr" aria-hidden="true">&rarr;</span></button>
+      </div>
+      <div class="form-msg" id="form-msg" role="status">Your email app has opened with this enquiry. Press send and we will reply within one working day.</div>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="logo">
+      <svg viewBox="0 0 168 28" style="height:20px" role="img" aria-label="Bluethread">
+        <defs>
+          <linearGradient id="lg-thread-f" x1="0" x2="1" y1="0" y2="0">
+            <stop offset="0" stop-color="#2f6bff"/>
+            <stop offset="1" stop-color="#8fd8ff"/>
+          </linearGradient>
+        </defs>
+        <circle cx="6" cy="20" r="3.2" fill="#2f6bff"/>
+        <path d="M6 20 C 12 20, 12 8, 19 8" fill="none" stroke="url(#lg-thread-f)" stroke-width="1.8" stroke-linecap="round"/>
+        <circle cx="21" cy="8" r="3.2" fill="none" stroke="#8fd8ff" stroke-width="1.6"/>
+        <text x="32" y="20.5" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="500" letter-spacing="-0.6" fill="#e9edf5">bluethread</text>
+      </svg>
+    </div>
+    <div class="fl">
+      <a href="#build">What we build</a><a href="#agents">AI agents</a><a href="#systems">Systems</a><a href="#contact">Contact</a>
+      <span>&copy; 2026 Bluethread</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ LIGHTBOX ============ -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-labelledby="lb-cap" aria-hidden="true">
+  <button type="button" class="lb-btn lb-close" id="lb-close" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <button type="button" class="lb-btn lb-prev" id="lb-prev" aria-label="Previous screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <figure>
+    <div class="frame"><span class="spin" id="lb-spin">loading&hellip;</span><img id="lb-img" alt=""></div>
+    <figcaption id="lb-cap"><span class="mono" id="lb-meta"></span><span id="lb-text"></span></figcaption>
+  </figure>
+  <button type="button" class="lb-btn lb-next" id="lb-next" aria-label="Next screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 5l7 7-7 7"/></svg></button>
+</div>
+
+<script>
+(function(){
+  document.body.classList.remove('no-js');
+  // failsafe: if a later script fails, never leave sections invisible
+  setTimeout(function(){ if(!window.__rvReady){ document.querySelectorAll('.reveal').forEach(function(r){r.classList.add('in');}); } },1200);
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var NS = 'http://www.w3.org/2000/svg';
+
+  /* ---------- System map ---------- */
+  var svg = document.getElementById('net');
+  var nodes = [
+    {id:'wa',   x:90,  y:70,  label:'whatsapp'},
+    {id:'web',  x:80,  y:200, label:'website'},
+    {id:'ads',  x:110, y:330, label:'meta ads'},
+    {id:'core', x:320, y:200, label:'your business', core:true},
+    {id:'ord',  x:330, y:56,  label:'orders'},
+    {id:'team', x:330, y:344, label:'team inbox'},
+    {id:'acc',  x:545, y:80,  label:'accounts'},
+    {id:'ai',   x:560, y:200, label:'ai agents'},
+    {id:'rep',  x:540, y:320, label:'reports'}
+  ];
+  var edges = [
+    ['wa','core'],['web','core'],['ads','core'],['ord','core'],['team','core'],
+    ['core','acc'],['core','ai'],['core','rep'],
+    ['wa','ord'],['ads','team'],['ord','acc'],['ai','rep'],['ai','acc'],['web','wa']
+  ];
+  var byId = {}; nodes.forEach(function(n){byId[n.id]=n;});
+
+  function el(tag, attrs, parent){
+    var e = document.createElementNS(NS, tag);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    (parent||svg).appendChild(e); return e;
+  }
+  function curve(a,b){
+    var dx = (b.x - a.x) * 0.5;
+    return 'M'+a.x+' '+a.y+' C '+(a.x+dx)+' '+a.y+', '+(b.x-dx)+' '+b.y+', '+b.x+' '+b.y;
+  }
+
+  // faint grid dots
+  var g0 = el('g',{opacity:'.5'});
+  for (var gx=20; gx<640; gx+=40) for (var gy=20; gy<400; gy+=40) el('circle',{cx:gx,cy:gy,r:'.8',fill:'#1a2234'},g0);
+
+  var gEdges = el('g',{}), gPulse = el('g',{}), gNodes = el('g',{});
+  var paths = edges.map(function(e){
+    var a=byId[e[0]], b=byId[e[1]], d=curve(a,b);
+    var isCore = e[0]==='core' || e[1]==='core';
+    el('path',{d:d,'class':isCore?'thread-glow':'thread'},gEdges);
+    return {d:d, from:a, to:b};
+  });
+
+  var nodeEls = {};
+  nodes.forEach(function(n){
+    var w = n.label.length*7 + (n.core?34:28), h = n.core?34:26;
+    var g = el('g',{'class':'node'+(n.core?' core':''), transform:'translate('+(n.x-w/2)+','+(n.y-h/2)+')'},gNodes);
+    el('rect',{width:w,height:h,rx:n.core?9:7},g);
+    el('circle',{cx:n.core?14:11,cy:h/2,r:n.core?3.5:2.6},g);
+    var t = el('text',{x:n.core?24:19,y:h/2+4},g); t.textContent = n.label;
+    nodeEls[n.id]=g;
+  });
+
+  // pulses: halo + bright segment travelling along a path
+  function makePulse(p){
+    var halo = el('path',{d:p.d,'class':'pulse-halo'},gPulse);
+    var line = el('path',{d:p.d,'class':'pulse'},gPulse);
+    var len = line.getTotalLength();
+    var seg = Math.min(46, len*0.35);
+    [halo,line].forEach(function(s){
+      s.style.strokeDasharray = seg+' '+(len+seg);
+      s.style.strokeDashoffset = seg;
+      s.style.opacity = 0;
+    });
+    return {halo:halo,line:line,len:len,seg:seg,p:p};
+  }
+
+  if (reduce){
+    // static: show a few lit threads, no movement
+    [0,3,5,6].forEach(function(i){
+      var s = el('path',{d:paths[i].d,fill:'none',stroke:'#8fd8ff','stroke-width':'1.4',opacity:'.55'},gPulse);
+    });
+    ['core','ai','wa'].forEach(function(id){nodeEls[id].classList.add('lit');});
+  } else {
+    var active = [];
+    function fire(){
+      var i = Math.floor(Math.random()*paths.length);
+      var pl = makePulse(paths[i]);
+      pl.t0 = performance.now(); pl.dur = 1500 + pl.len*4;
+      active.push(pl);
+    }
+    function lit(id){
+      var g = nodeEls[id]; if(!g) return;
+      g.classList.add('lit'); setTimeout(function(){g.classList.remove('lit');},700);
+    }
+    var last = 0, inView = true, tabOn = !document.hidden, running = false;
+    function start(){ if (!running && inView && tabOn){ running = true; requestAnimationFrame(tick); } }
+    function tick(now){
+      if (!(inView && tabOn)){ running = false; return; }
+      if (now - last > 520){ last = now; fire(); if (Math.random()<.5) fire(); }
+      for (var k=active.length-1;k>=0;k--){
+        var a = active[k], t = (now - a.t0)/a.dur;
+        if (t>=1){ lit(a.p.to.id); a.halo.remove(); a.line.remove(); active.splice(k,1); continue; }
+        var e = t<.5 ? 2*t*t : 1-Math.pow(-2*t+2,2)/2;
+        var off = a.seg - e*(a.len+a.seg);
+        var op = t<.1 ? t/.1 : (t>.9 ? (1-t)/.1 : 1);
+        a.line.style.strokeDashoffset = off; a.halo.style.strokeDashoffset = off;
+        a.line.style.opacity = op; a.halo.style.opacity = op*.22;
+      }
+      requestAnimationFrame(tick);
+    }
+    if ('IntersectionObserver' in window){
+      new IntersectionObserver(function(es){ inView = es[0].isIntersecting; start(); }).observe(svg);
+    }
+    document.addEventListener('visibilitychange',function(){ tabOn = !document.hidden; start(); });
+    start();
+  }
+
+  /* ---------- Event log (illustrative, no real data) ---------- */
+  var log = document.getElementById('log');
+  var events = [
+    ['whatsapp.enquiry','sales.inbox','routed'],
+    ['orders.new','production.queue','synced'],
+    ['bill.photo','accounts.draft','awaiting approval'],
+    ['ads.proposal','owner.approve','approved'],
+    ['accounts.query','whatsapp.reply','answered'],
+    ['website.lead','crm.contact','created'],
+    ['ai.agent','reports.daily','delivered'],
+    ['expense.telegram','petty_cash.ledger','filed']
+  ];
+  function row(ev){
+    var d = document.createElement('div'); d.className='row';
+    d.innerHTML = '<b>ok</b><em>'+ev[0]+'</em><span>&rarr; '+ev[1]+'</span><span style="margin-left:auto">'+ev[2]+'</span>';
+    return d;
+  }
+  var ei = 0;
+  log.appendChild(row(events[ei++])); log.appendChild(row(events[ei++]));
+  if (!reduce){
+    setInterval(function(){
+      if (document.hidden) return;
+      log.appendChild(row(events[ei++ % events.length]));
+      while (log.children.length>2) log.removeChild(log.firstChild);
+    }, 2200);
+  }
+
+  /* ---------- AI agent loop + console (illustrative, generic, no real data) ---------- */
+  (function(){
+    var lsvg = document.getElementById('loop'), agLog = document.getElementById('ag-log'),
+        agStatus = document.getElementById('ag-status'), live = document.getElementById('agent-live'),
+        stepLis = document.querySelectorAll('#loop-steps li');
+    if (!lsvg || !agLog) return;
+    var STEPS = ['watch','decide','ask','act','report'];
+    var CX = 210, CY = 180, R = 124;
+    function ang(i){ return (-90 + i*72) * Math.PI/180; }
+    function pt(a){ return [CX + R*Math.cos(a), CY + R*Math.sin(a)]; }
+    function mk(tag, attrs, parent){
+      var e = document.createElementNS(NS, tag);
+      for (var k in attrs) e.setAttribute(k, attrs[k]);
+      (parent||lsvg).appendChild(e); return e;
+    }
+    var gd = mk('g',{opacity:'.5'});
+    for (var x=20; x<420; x+=40) for (var y=20; y<360; y+=40) mk('circle',{cx:x,cy:y,r:'.8',fill:'#1a2234'},gd);
+    mk('circle',{cx:CX,cy:CY,r:R,'class':'lp-ring'});
+    mk('circle',{cx:CX,cy:CY,r:R-14,'class':'lp-ring-glow'});
+    // spokes from core to each step
+    STEPS.forEach(function(s,i){
+      var p = pt(ang(i)), q = [CX + 46*Math.cos(ang(i)), CY + 34*Math.sin(ang(i))];
+      mk('path',{d:'M'+q[0]+' '+q[1]+' L'+p[0]+' '+p[1],'class':'lp-ring',opacity:'.55'});
+    });
+    var halo = mk('path',{'class':'lp-halo',d:''}), trail = mk('path',{'class':'lp-trail',d:''});
+    var dot = mk('circle',{r:4,'class':'lp-dot',opacity:'0'});
+    var core = mk('g',{'class':'lp-core'});
+    mk('rect',{x:CX-62,y:CY-28,width:124,height:56,rx:10},core);
+    var t1 = mk('text',{x:CX,y:CY-4,'text-anchor':'middle','class':'t1'},core); t1.textContent = 'agent';
+    var t2 = mk('text',{x:CX,y:CY+14,'text-anchor':'middle','class':'t2'},core); t2.textContent = 'one clear job';
+    var nodesL = STEPS.map(function(s,i){
+      var p = pt(ang(i)), w = 94, h = 30;
+      var g = mk('g',{'class':'lp-node',transform:'translate('+(p[0]-w/2)+','+(p[1]-h/2)+')'});
+      mk('rect',{width:w,height:h,rx:8},g);
+      var t = mk('text',{x:w/2,y:h/2+4,'text-anchor':'middle'},g);
+      var n = mk('tspan',{'class':'n'},t); n.textContent = '0'+(i+1)+' ';
+      var l = mk('tspan',{},t); l.textContent = s;
+      return g;
+    });
+    function arc(a0, a1){
+      var p0 = pt(a0), p1 = pt(a1), large = (a1-a0) > Math.PI ? 1 : 0;
+      return 'M'+p0[0].toFixed(1)+' '+p0[1].toFixed(1)+' A'+R+' '+R+' 0 '+large+' 1 '+p1[0].toFixed(1)+' '+p1[1].toFixed(1);
+    }
+    var cur = 0, curA = ang(0), anim = null;
+    function placeDot(a){
+      var p = pt(a); dot.setAttribute('cx',p[0].toFixed(1)); dot.setAttribute('cy',p[1].toFixed(1));
+      var d = arc(a - 0.5, a); trail.setAttribute('d',d); halo.setAttribute('d',d);
+    }
+    function setStep(i, wait){
+      nodesL.forEach(function(g,k){ g.classList.toggle('on', k===i); g.classList.toggle('wait', k===i && !!wait); });
+      for (var k=0;k<stepLis.length;k++) stepLis[k].classList.toggle('on', k===i);
+      t2.textContent = wait ? 'awaiting approval' : STEPS[i];
+      var target = ang(i); while (target < curA - 1e-6) target += Math.PI*2;
+      if (reduce){ curA = target; placeDot(curA); cur = i; return; }
+      var from = curA, t0 = performance.now(), dur = Math.max(260, (target-from)/(Math.PI*2/5)*620);
+      if (anim) cancelAnimationFrame(anim);
+      dot.setAttribute('opacity','1');
+      (function f(now){
+        var t = Math.min(1,(now-t0)/dur), e = t<.5 ? 2*t*t : 1-Math.pow(-2*t+2,2)/2;
+        curA = from + (target-from)*e; placeDot(curA);
+        anim = t<1 ? requestAnimationFrame(f) : null;
+      })(t0);
+      cur = i;
+    }
+
+    // generic scenarios: made-up, no brand, no real numbers
+    var SC = [
+      [['watch','New enquiry received on WhatsApp'],
+       ['decide','Checked against lead rules: serious'],
+       ['decide','Routine task: runs on its own',null,'Label this lead and assign it to sales'],
+       ['act','Lead labelled serious, assigned to sales'],
+       ['report','Added to the daily summary, action logged']],
+      [['watch','Bill photo received in chat'],
+       ['decide','Read supplier, date, items and tax'],
+       ['decide','Drafted a purchase entry'],
+       ['ask','Approval requested from the sender','Post this purchase entry?'],
+       ['act','Entry posted to accounts'],
+       ['act','Checked: ledger matches the bill'],
+       ['report','Daily summary updated, action logged']],
+      [['watch','Expense message received in chat'],
+       ['decide','Read amount, category and who paid'],
+       ['decide','Routine task: runs on its own',null,'Record this expense'],
+       ['act','Expense recorded, running total updated'],
+       ['report','Action logged']],
+      [['watch','Ad results refreshed'],
+       ['decide','One ad is above its cost target'],
+       ['decide','Drafted: move budget to the best ad'],
+       ['ask','Approval requested from the owner on Telegram','Move budget to the best-performing ad?'],
+       ['act','Budget change switched on'],
+       ['act','Checked: change is live'],
+       ['report','Weekly report updated, action logged']]
+    ];
+    var clock = 9*3600 + 14*60 + 2;
+    function stamp(){ var h=Math.floor(clock/3600), m=Math.floor(clock/60)%60, s=clock%60;
+      return (h<10?'0':'')+h+':'+(m<10?'0':'')+m+':'+(s<10?'0':'')+s; }
+    function status(txt, ok){ agStatus.innerHTML = '&#9679; '+txt; agStatus.style.color = ok ? 'var(--ok)' : 'var(--signal)'; }
+    function trim(){ while (agLog.children.length > 11) agLog.removeChild(agLog.firstChild); }
+    function line(ev, anim){
+      var d = document.createElement('div'); d.className = 'cl' + (anim ? ' new' : '');
+      var kc = ev[0]==='act' ? 'k act' : (ev[0]==='report' ? 'k report' : 'k');
+      d.innerHTML = '<time></time><span class="'+kc+'"></span><span class="m"></span>';
+      d.children[0].textContent = stamp(); d.children[1].textContent = ev[0]; d.children[2].textContent = ev[1];
+      agLog.appendChild(d); trim();
+    }
+    var card = null;
+    function askCard(q, anim, approved){
+      card = document.createElement('div'); card.className = 'appr' + (anim ? ' new' : '') + (approved ? ' ok' : '');
+      card.innerHTML = '<div><p></p><small>one tap: yes / no</small></div><span class="st"></span>';
+      card.querySelector('p').textContent = q;
+      card.querySelector('.st').textContent = approved ? 'approved' : 'awaiting approval';
+      agLog.appendChild(card); trim();
+    }
+    function autoCard(q, anim){
+      var c = document.createElement('div'); c.className = 'appr auto' + (anim ? ' new' : '');
+      c.innerHTML = '<div><p></p><small>routine: runs on its own</small></div><span class="st">no approval needed</span>';
+      c.querySelector('p').textContent = q;
+      agLog.appendChild(c); trim();
+    }
+    function approve(){
+      if (!card) return;
+      card.classList.add('ok'); card.querySelector('.st').textContent = 'approved';
+      card.querySelector('small').textContent = 'approved by a person';
+    }
+    function run(ev, anim){
+      clock += 1 + Math.floor(Math.random()*3);
+      line(ev, anim);
+      var i = STEPS.indexOf(ev[0]);
+      if (ev[2]){ askCard(ev[2], anim, false); setStep(i, true); status('awaiting approval', false); }
+      else if (ev[3]){ autoCard(ev[3], anim); setStep(i, false); t2.textContent = 'no approval needed'; status('running on its own', true); }
+      else { setStep(i, false); status(ev[0]==='watch' ? 'watching' : (ev[0]==='act' ? 'acting' : (ev[0]==='report' ? 'reporting' : 'deciding')), ev[0]!=='decide'); }
+    }
+
+    if (reduce){
+      // static and fully readable: one routine task, then one approval, already given
+      SC[0].concat(SC[1].slice(0,4)).forEach(function(ev){ clock += 2; line(ev,false);
+        if (ev[2]) { askCard(ev[2], false, true); card.querySelector('small').textContent = 'approved by a person'; }
+        if (ev[3]) autoCard(ev[3], false); });
+      nodesL.forEach(function(g){ g.classList.add('on'); });
+      t2.textContent = 'watch → report'; status('approved', true);
+      return;
+    }
+
+    // flatten scenarios into one timeline
+    var Q = [];
+    SC.forEach(function(sc){
+      sc.forEach(function(ev){
+        Q.push({ev:ev, wait: ev[2] ? 2600 : (ev[3] ? 2200 : (ev[0]==='decide' ? 1100 : 1300))});
+        if (ev[2]) Q.push({approve:true, wait:1500});
+      });
+      Q.push({pause:true, wait:2000});
+    });
+    // prefill so the console is never empty (and screenshots read well)
+    var qi = 0;
+    if (/[?&]shot/.test(location.search)){
+      // screenshot mode: one fixed frame, mid-cycle, approval just given
+      for (; qi<Q.length; qi++){
+        if (Q[qi].approve){ approve(); status('approved', true); setStep(2, false); t2.textContent = 'approved'; break; }
+        if (Q[qi].ev) run(Q[qi].ev, false);
+      }
+      return;
+    }
+    for (; qi<3; qi++) run(Q[qi].ev, false);
+    var timer = null, inView = true, tabOn = !document.hidden;
+    function next(){
+      timer = null;
+      if (!(inView && tabOn)) return;
+      var item = Q[qi % Q.length]; qi++;
+      if (item.approve){ approve(); clock += 18 + Math.floor(Math.random()*20); status('approved', true); setStep(STEPS.indexOf('ask'), false); t2.textContent = 'approved'; }
+      else if (item.ev) run(item.ev, true);
+      timer = setTimeout(next, item.wait);
+    }
+    function go(){ if (!timer && inView && tabOn) timer = setTimeout(next, 900); }
+    function stop(){ if (timer){ clearTimeout(timer); timer = null; } }
+    if ('IntersectionObserver' in window){
+      new IntersectionObserver(function(es){ inView = es[0].isIntersecting; inView ? go() : stop(); }).observe(live);
+    }
+    document.addEventListener('visibilitychange', function(){ tabOn = !document.hidden; tabOn ? go() : stop(); });
+    go();
+  })();
+
+  /* ---------- Reveal on scroll ---------- */
+  window.__rvReady = true;
+  var rv = document.querySelectorAll('.reveal');
+  var shot = /[?&]shot/.test(location.search); // screenshot mode: show everything at once
+  if (reduce || shot || !('IntersectionObserver' in window)){
+    if (shot) rv.forEach(function(r){r.style.transition='none';});
+    rv.forEach(function(r){r.classList.add('in');});
+  } else {
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+    },{rootMargin:'0px 0px -8% 0px'});
+    rv.forEach(function(r){io.observe(r);});
+  }
+
+  /* ---------- Form: opens a pre-filled email ---------- */
+  document.getElementById('form').addEventListener('submit',function(e){
+    e.preventDefault();
+    var f = e.target, v = function(n){ return (f.elements[n].value || '').trim(); };
+    var needs = [].map.call(f.querySelectorAll('input[name="need"]:checked'), function(c){ return c.nextElementSibling.textContent; });
+    var body = 'Name: ' + v('name') + '\nEmail: ' + v('email') + '\nCompany: ' + v('company') +
+      '\nCountry: ' + v('country') + '\nNeeds: ' + (needs.join(', ') || '-') + '\n\n' + v('message');
+    var subject = 'Project enquiry' + (v('company') ? ' from ' + v('company') : '');
+    location.href = 'mailto:suraj.surana@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    document.getElementById('form-msg').classList.add('show');
+  });
+  /* ---------- Demo lightbox ---------- */
+  var lb = document.getElementById('lb'), lbImg = document.getElementById('lb-img'),
+      lbSpin = document.getElementById('lb-spin'), lbMeta = document.getElementById('lb-meta'),
+      lbText = document.getElementById('lb-text'), lbPrev = document.getElementById('lb-prev'),
+      lbNext = document.getElementById('lb-next'), lbClose = document.getElementById('lb-close');
+  var set = [], idx = 0, title = '', opener = null, mainEl = document.querySelector('main');
+  var cards = document.querySelectorAll('.sys.has-demo');
+  for (var ci=0; ci<cards.length; ci++){
+    (function(card){
+      var btn = card.querySelector('.demo-open');
+      btn.setAttribute('aria-label', 'View demo screens: ' + card.querySelector('h3').textContent);
+      btn.addEventListener('click', function(e){ e.stopPropagation(); openLb(card, btn); });
+      card.addEventListener('click', function(e){
+        if (e.target.closest('a,button')) return;
+        if (window.getSelection && String(window.getSelection()).length) return;
+        openLb(card, btn);
+      });
+    })(cards[ci]);
+  }
+  function preload(b){ if (b){ var i = new Image(); i.src = b.getAttribute('data-full'); } }
+  function show(i){
+    idx = (i + set.length) % set.length;
+    var b = set[idx];
+    lbImg.style.visibility = 'hidden'; lbSpin.style.display = '';
+    lbImg.onload = function(){ lbSpin.style.display = 'none'; lbImg.style.visibility = ''; };
+    lbImg.className = b.hasAttribute('data-phone') ? 'phone' : '';
+    lbImg.width = +b.getAttribute('data-w'); lbImg.height = +b.getAttribute('data-h');
+    lbImg.src = b.getAttribute('data-full');
+    lbImg.alt = b.getAttribute('data-alt');
+    lbMeta.textContent = title + '  \u00b7  ' + (idx+1) + ' / ' + set.length;
+    lbText.textContent = b.getAttribute('data-cap');
+    var multi = set.length > 1; lbPrev.hidden = !multi; lbNext.hidden = !multi;
+    preload(set[(idx+1) % set.length]); preload(set[(idx-1+set.length) % set.length]);
+  }
+  function openLb(card, btn){
+    var g = card.querySelector('.demo-set');
+    set = Array.prototype.slice.call(g.querySelectorAll('i'));
+    title = g.getAttribute('data-title') || '';
+    opener = btn;
+    show(0);
+    lb.classList.add('open'); lb.setAttribute('aria-hidden','false');
+    document.documentElement.classList.add('lb-lock');
+    if (mainEl) mainEl.setAttribute('aria-hidden','true');
+    lbClose.focus();
+  }
+  function closeLb(){
+    if (!lb.classList.contains('open')) return;
+    lb.classList.remove('open'); lb.setAttribute('aria-hidden','true');
+    document.documentElement.classList.remove('lb-lock');
+    if (mainEl) mainEl.removeAttribute('aria-hidden');
+    if (opener) opener.focus();
+  }
+  lbClose.addEventListener('click', closeLb);
+  lbPrev.addEventListener('click', function(){ show(idx-1); });
+  lbNext.addEventListener('click', function(){ show(idx+1); });
+  lb.addEventListener('click', function(e){ if (e.target === lb || e.target.tagName === 'FIGURE') closeLb(); });
+  document.addEventListener('keydown', function(e){
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape'){ e.preventDefault(); closeLb(); }
+    else if (e.key === 'ArrowLeft' && set.length>1){ e.preventDefault(); show(idx-1); }
+    else if (e.key === 'ArrowRight' && set.length>1){ e.preventDefault(); show(idx+1); }
+    else if (e.key === 'Tab'){
+      var f = [lbClose, lbPrev, lbNext].filter(function(x){ return !x.hidden; });
+      var k = f.indexOf(document.activeElement);
+      e.preventDefault();
+      f[(k + (e.shiftKey ? -1 : 1) + f.length) % f.length].focus();
+    }
+  });
+  // swipe on touch screens
+  var tx = null;
+  lb.addEventListener('touchstart', function(e){ tx = e.touches[0].clientX; }, {passive:true});
+  lb.addEventListener('touchend', function(e){
+    if (tx === null || set.length < 2) return;
+    var dx = e.changedTouches[0].clientX - tx; tx = null;
+    if (Math.abs(dx) > 50) show(idx + (dx < 0 ? 1 : -1));
+  });
+  // screenshot helper: ?shot&lb=N opens the Nth demo card's screens
+  var m = /[?&]lb=(\d+)/.exec(location.search);
+  if (m && cards[+m[1]]){ lb.style.transition = 'none'; openLb(cards[+m[1]], cards[+m[1]].querySelector('.demo-open')); }
+})();
+</script>
+</body>
+</html>
