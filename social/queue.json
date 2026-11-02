@@ -1,0 +1,219 @@
+{
+  "account": "bluethreadai.in",
+  "base_url": "https://bluethreadai.in",
+  "timezone_note": "scheduled_at is ISO 8601 with offset; +05:30 = IST",
+  "max_late_minutes": 180,
+  "posts": [
+    {
+      "id": "2026-11/01-entire-business-systems",
+      "scheduled_at": "2026-11-03T19:30:00+05:30",
+      "images": [
+        "social/2026-11/01-entire-business-systems/01.jpg",
+        "social/2026-11/01-entire-business-systems/02.jpg",
+        "social/2026-11/01-entire-business-systems/03.jpg",
+        "social/2026-11/01-entire-business-systems/04.jpg"
+      ],
+      "alt_text": [
+        "Headline \"Entire business systems, not just websites.\" above a diagram linking orders, accounts and ads to one system, which links to WhatsApp and your team.",
+        "The four services, Custom business software, AI systems, Automations and Websites, each with a short description and tags.",
+        "The four services, Custom business software, AI systems, Automations and Websites, each with a short description and tags.",
+        "\"A sale, an invoice and a WhatsApp message all end up in the same place.\" with the website bluethreadai.in and WhatsApp +91 73046 48891."
+      ],
+      "caption": "Entire business systems, not just websites.\n\nBluethread builds custom software, AI agents, automations and websites, designed as one connected system: orders, accounts, ads, WhatsApp and your team, in one system that talks to itself.\n\nSwipe for the four things we build. A sale, an invoice and a WhatsApp message all end up in the same place.\n\nStart a project: link in bio, or WhatsApp +91 73046 48891.\n\n#BusinessSystems #BusinessAutomation #AIAgents #SmallBusinessIndia #SmallBusinessUSA",
+      "approved": true,
+      "approval_hash": "879ce4c075d5d03592e0f8f06d7f87af4b990fd8882394c2eb489fd9cc6e213c",
+      "approved_at": "2026-11-02T06:56:59+00:00",
+      "status": "pending",
+      "ig_media_id": null,
+      "container_id": null,
+      "posted_at": null,
+      "error": null
+    },
+    {
+      "id": "2026-11/02-petty-cash-bot",
+      "scheduled_at": "2026-11-03T20:15:00+05:30",
+      "images": [
+        "social/2026-11/02-petty-cash-bot/01.jpg",
+        "social/2026-11/02-petty-cash-bot/02.jpg",
+        "social/2026-11/02-petty-cash-bot/03.jpg"
+      ],
+      "alt_text": [
+        "A Telegram chat with the Petty Cash bot showing this month's expense breakdown by cost head for a demo company, with a total.",
+        "An expense being logged in the chat, with the bot confirming the entry and the person's updated cash balance.",
+        "How it works: Telegram chat and companies flow into the petty cash system, which produces categorised spend, balances and backups. All data shown is demo data."
+      ],
+      "caption": "Petty cash, logged in a chat.\n\nStaff log petty-cash spends, income and hand-overs in a Telegram chat. The bot files each entry by company and cost head, tracks every person's cash balance, and gives owners a live breakdown by cost head or by employee.\n\nNo notebooks, no month-end hunt for receipts. Screens use demo data.\n\nStart a project: link in bio, or WhatsApp +91 73046 48891.\n\n#PettyCash #BusinessAutomation #TelegramBot #SmallBusinessIndia #ExpenseTracking",
+      "approved": true,
+      "approval_hash": "29804eb2cca9492424a520e1991aeee64da08e6681099d337312b60594142561",
+      "approved_at": "2026-11-02T06:56:59+00:00",
+      "status": "pending",
+      "ig_media_id": null,
+      "container_id": null,
+      "posted_at": null,
+      "error": null
+    },
+    {
+      "id": "2026-11/03-how-a-project-runs",
+      "scheduled_at": "2026-11-03T21:00:00+05:30",
+      "images": [
+        "social/2026-11/03-how-a-project-runs/01.jpg",
+        "social/2026-11/03-how-a-project-runs/02.jpg",
+        "social/2026-11/03-how-a-project-runs/03.jpg"
+      ],
+      "alt_text": [
+        "Headline \"From workflow map to launch. One lead throughout.\" above five steps on a vertical thread: workflow map, written plan, design and build, launch with your team, run and improve.",
+        "\"It starts with how your team actually works, not with a template.\"",
+        "\"Every project is led by Suraj Surana\" with four principles, Owner's view, Human approval, Your data stays yours and Built to last, and contact details."
+      ],
+      "caption": "From workflow map to launch. One lead throughout.\n\nEvery Bluethread project runs on the same thread: workflow map, written plan, design and build, launch with your team, then run and improve.\n\nIt starts with how your team actually works, not with a template. A short call to understand your workflow, then a written plan. No obligation.\n\nEvery project is led by Suraj Surana, from the first workflow map to launch and beyond.\n\nStart a project: link in bio, or WhatsApp +91 73046 48891.\n\n#BusinessSystems #CustomSoftware #DigitalTransformation #SmallBusinessIndia #SmallBusinessUSA",
+      "approved": true,
+      "approval_hash": "129af6929ae18ab4fbc796ce584308c15dacb1b2e77f81846ef3d7676eec46b6",
+      "approved_at": "2026-11-02T06:56:59+00:00",
+      "status": "pending",
+      "ig_media_id": null,
+      "container_id": null,
+      "posted_at": null,
+      "error": null
+    },
+    {
+      "id": "2026-11/04-ai-accountant",
+      "scheduled_at": "2026-11-04T19:30:00+05:30",
+      "images": [
+        "social/2026-11/04-ai-accountant/01.jpg",
+        "social/2026-11/04-ai-accountant/02.jpg",
+        "social/2026-11/04-ai-accountant/03.jpg"
+      ],
+      "alt_text": [
+        "A web chat where someone asks \"Who owes us the most?\" and gets the top five debtors from Tally ledger balances for a demo company.",
+        "A purchase bill photo sent in the chat becomes a draft entry with supplier, amounts and GST, waiting for approval with Approve, Edit and Reject buttons.",
+        "The same entry after approval, marked In Tally with its voucher number. All data shown is demo data."
+      ],
+      "caption": "Ask your accounts a question. Get the answer from Tally Prime.\n\nAI Accountant answers questions from your books in plain English. Send a bill photo and it becomes a draft entry, approved by the sender, then entered into Tally automatically.\n\nRoutine answers come straight away. Entries in your books wait for a yes.\n\nShown in the web chat, with demo data.\n\nStart a project: link in bio, or WhatsApp +91 73046 48891.\n\n#TallyPrime #AIAccountant #AccountingAutomation #SmallBusinessIndia #AIAgents",
+      "approved": true,
+      "approval_hash": "ff0eaef8747a9efc486191ea27869f93204f1770890d349384b36139bdd360b0",
+      "approved_at": "2026-11-02T06:56:59+00:00",
+      "status": "pending",
+      "ig_media_id": null,
+      "container_id": null,
+      "posted_at": null,
+      "error": null
+    },
+    {
+      "id": "2026-11/05-the-threads",
+      "scheduled_at": "2026-11-04T20:15:00+05:30",
+      "images": [
+        "social/2026-11/05-the-threads/01.jpg"
+      ],
+      "alt_text": [
+        "The Bluethread mark, a blue node joined by a glowing thread to an open light-blue node, above the headline \"The threads that run your business. Designed, built and kept running.\" Below it: India, United States, Worldwide, remote."
+      ],
+      "caption": "The threads that run your business. Designed, built and kept running.\n\nBluethread designs and builds the software, automations and AI systems that run a business day to day, from orders and accounts to ads and sales.\n\nIndia, the United States and worldwide, remote.\n\nStart a project: link in bio, or WhatsApp +91 73046 48891.\n\n#Bluethread #AIAndBusinessSystems #BusinessAutomation #AIAgents #CustomSoftware",
+      "approved": true,
+      "approval_hash": "0f525ad787262462f1abbc1572529531f05def48da4451191eacec031a6d6bfb",
+      "approved_at": "2026-11-02T06:56:59+00:00",
+      "status": "pending",
+      "ig_media_id": null,
+      "container_id": null,
+      "posted_at": null,
+      "error": null
+    },
+    {
+      "id": "2026-11/06-ai-sales-intelligence",
+      "scheduled_at": "2026-11-04T21:00:00+05:30",
+      "images": [
+        "social/2026-11/06-ai-sales-intelligence/01.jpg",
+        "social/2026-11/06-ai-sales-intelligence/02.jpg",
+        "social/2026-11/06-ai-sales-intelligence/03.jpg"
+      ],
+      "alt_text": [
+        "A lead quality review screen with counts of enquiries and labels, filter tabs, and an enquiry labelled junk with Correct and Wrong label buttons.",
+        "A table of enquiry quality by ad for the last 30 days, with junk, browsing, serious and converted counts per ad.",
+        "How it works: WhatsApp enquiries, ad source and sales team replies flow into the sales AI, which produces lead quality and feedback to ads. All data shown is demo data."
+      ],
+      "caption": "Every WhatsApp enquiry, labelled by how serious the lead is.\n\nAI Sales Intelligence reads every WhatsApp enquiry, labels it junk, browsing, serious or converted, and traces it back to the ad that brought it in. The team confirms or corrects each label.\n\nSo ads are judged by the quality of the enquiries they bring, not just their cost. Screens use demo data.\n\nStart a project: link in bio, or WhatsApp +91 73046 48891.\n\n#WhatsAppBusiness #LeadQuality #SalesAutomation #MetaAds #AIAgents",
+      "approved": true,
+      "approval_hash": "16978fa67715cf0b1662f5166a84cdd6861b7c8fa7e26080ecf69a2fe343e82e",
+      "approved_at": "2026-11-02T06:56:59+00:00",
+      "status": "pending",
+      "ig_media_id": null,
+      "container_id": null,
+      "posted_at": null,
+      "error": null
+    },
+    {
+      "id": "2026-11/07-ai-agents",
+      "scheduled_at": "2026-11-05T19:30:00+05:30",
+      "images": [
+        "social/2026-11/07-ai-agents/01.jpg",
+        "social/2026-11/07-ai-agents/02.jpg",
+        "social/2026-11/07-ai-agents/03.jpg",
+        "social/2026-11/07-ai-agents/04.jpg"
+      ],
+      "alt_text": [
+        "Headline \"AI agents that work inside your business, around the clock.\" above a loop diagram of five steps around an agent: watch, decide, ask, act, report.",
+        "The five steps explained.",
+        "Four principles: routine work runs on its own; money, customers and records wait for a yes; every action is logged; each agent does only the job it is given.",
+        "Agents at work today in ads, accounts, sales and search."
+      ],
+      "caption": "AI agents that work inside your business, around the clock.\n\nAn agent is software with one clear job. It watches your systems, notices when something needs doing, works out the next step, and either does it or asks a person first.\n\nWatch. Decide. Ask, when it matters. Act. Report.\n\nRoutine work runs on its own. Money, customers and records wait for a yes. Every action is logged.\n\nStart a project: link in bio, or WhatsApp +91 73046 48891.\n\n#AIAgents #AIForBusiness #BusinessAutomation #HumanInTheLoop #SmallBusinessUSA",
+      "approved": true,
+      "approval_hash": "3835c14966a1994437864926b1e8b3044a82847081ff0a8415d0e30174ffd145",
+      "approved_at": "2026-11-02T06:56:59+00:00",
+      "status": "pending",
+      "ig_media_id": null,
+      "container_id": null,
+      "posted_at": null,
+      "error": null
+    },
+    {
+      "id": "2026-11/08-ai-meta-ads",
+      "scheduled_at": "2026-11-05T20:15:00+05:30",
+      "images": [
+        "social/2026-11/08-ai-meta-ads/01.jpg",
+        "social/2026-11/08-ai-meta-ads/02.jpg",
+        "social/2026-11/08-ai-meta-ads/03.jpg"
+      ],
+      "alt_text": [
+        "A Telegram message titled Approval needed, proposing a budget change on a demo campaign with a spending limit and rollback rule, with Approve, Reject and Hold buttons.",
+        "A weekly ads report in Telegram with spend, orders, cost per order and enquiry quality.",
+        "How it works: ad performance, enquiry quality and sales targets flow into an AI planner, which produces proposals, one-tap approval and live changes. All data shown is demo data."
+      ],
+      "caption": "Nothing goes live until a person approves it. One tap.\n\nAI agents plan, monitor and propose changes to Meta ad campaigns. Each proposal arrives in Telegram with the budget, the spending limit and a rollback rule. One tap approves, rejects or holds it.\n\nEvery week: spend, orders, cost per order and enquiry quality, with the plans waiting for approval. Screens use demo data.\n\nStart a project: link in bio, or WhatsApp +91 73046 48891.\n\n#MetaAds #AIMarketing #AdAutomation #AIAgents #SmallBusinessIndia",
+      "approved": true,
+      "approval_hash": "c11545eca50b2657466662981285f6be067f17e08f5c737025e8f92cd3bed3c1",
+      "approved_at": "2026-11-02T06:56:59+00:00",
+      "status": "pending",
+      "ig_media_id": null,
+      "container_id": null,
+      "posted_at": null,
+      "error": null
+    },
+    {
+      "id": "2026-11/09-systems-built",
+      "scheduled_at": "2026-11-05T21:00:00+05:30",
+      "images": [
+        "social/2026-11/09-systems-built/01.jpg",
+        "social/2026-11/09-systems-built/02.jpg",
+        "social/2026-11/09-systems-built/03.jpg",
+        "social/2026-11/09-systems-built/04.jpg",
+        "social/2026-11/09-systems-built/05.jpg"
+      ],
+      "alt_text": [
+        "Headline \"Built and running in operating businesses.\" above a list of seven systems: Stitchflow, Texport, AI Meta Ads system, AI Accountant, AI Sales Intelligence, Petty Cash bot, and Search and AI visibility.",
+        "Each system with a short description and a diagram of its inputs, its hub and its outputs. The last slide ends with the website bluethreadai.in and WhatsApp +91 73046 48891.",
+        "Each system with a short description and a diagram of its inputs, its hub and its outputs. The last slide ends with the website bluethreadai.in and WhatsApp +91 73046 48891.",
+        "Each system with a short description and a diagram of its inputs, its hub and its outputs. The last slide ends with the website bluethreadai.in and WhatsApp +91 73046 48891.",
+        "Each system with a short description and a diagram of its inputs, its hub and its outputs. The last slide ends with the website bluethreadai.in and WhatsApp +91 73046 48891."
+      ],
+      "caption": "Built and running in operating businesses.\n\nSeven systems, each shown as a system: what goes in, what it automates, what comes out. No client data appears here.\n\nStitchflow: order management software for boutiques, fashion designers and bridal studios (stitchflow.in)\nTexport: export ERP for a textile business (texport.co.in)\nAI Meta Ads system\nAI Accountant\nAI Sales Intelligence\nPetty Cash bot\nSearch & AI visibility\n\nStart a project: link in bio, or WhatsApp +91 73046 48891.\n\n#BusinessSystems #CustomSoftware #ERP #AIAgents #BusinessAutomation",
+      "approved": true,
+      "approval_hash": "914b12bc19a49b53b27b7c66e931cd3ef1561848f7f702aafcc6e7d639e53b20",
+      "approved_at": "2026-11-02T06:56:59+00:00",
+      "status": "pending",
+      "ig_media_id": null,
+      "container_id": null,
+      "posted_at": null,
+      "error": null
+    }
+  ]
+}

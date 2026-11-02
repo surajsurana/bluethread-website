@@ -1,0 +1,63 @@
+# Posts approved items from social/queue.json to Instagram @bluethreadai.in.
+# OFF until the repo variable IG_POSTING_ENABLED is set to "true"
+# (Settings > Secrets and variables > Actions > Variables). Unset = every job is skipped.
+name: Instagram post
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"   # UTC; post times come from queue.json
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run only (read-only token check, nothing posted)"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: instagram-post
+  cancel-in-progress: false
+
+jobs:
+  post:
+    if: vars.IG_POSTING_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Dry run
+        if: github.event_name == 'workflow_dispatch' && inputs.dry_run
+        env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+        run: |
+          python3 tools/instagram/ig_poster.py --dry-run
+          python3 tools/instagram/ig_poster.py --check-token
+
+      - name: Post due, approved items
+        if: github.event_name == 'schedule' || !inputs.dry_run
+        env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+        run: python3 tools/instagram/ig_poster.py --run
+
+      - name: Commit queue status
+        if: always() && (github.event_name == 'schedule' || !inputs.dry_run)
+        run: |
+          git config user.name "bluethread-ig-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add social/queue.json
+          if git diff --cached --quiet; then echo "queue unchanged"; exit 0; fi
+          git commit -m "Instagram queue: update post status"
+          for i in 1 2 3; do
+            git pull --rebase && git push && exit 0
+            sleep 5
+          done
+          exit 1
