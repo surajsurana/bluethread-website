@@ -1,0 +1,27 @@
+# Bluethread
+
+> Bluethread designs and builds entire business systems, not just websites: custom business software, AI agents, automations and websites, connected as one system. Led by Suraj Surana, AI & Business Systems Architect. Serves companies in India, the USA and worldwide, working remotely.
+
+## What Bluethread builds
+- Custom business software: order, inventory, production and accounts software shaped to how a company runs. Web-based, multi-user, with roles and audit trails.
+- AI systems and AI agents: AI that does a defined job inside a business. Routine work runs on its own; anything involving money, customers or records waits for a person's one-tap approval.
+- Automations: the repetitive work between tools (WhatsApp, Telegram, APIs), such as messages sent, records updated, reports delivered and approvals routed.
+- Websites and online stores: built as the front door of the business system, connected to orders, enquiries and accounts.
+
+## Systems built and running in operating businesses
+- Stitchflow: order management software for boutiques, fashion designers and bridal studios: orders, measurements, production and customer updates in one place (https://stitchflow.in).
+- Texport: an export ERP for a textile business, from enquiry and order through production and stock to packing, export invoicing and shipping documents (https://texport.co.in).
+- AI Meta Ads system: AI agents plan, monitor and propose changes to Meta ad campaigns. Nothing goes live until a person approves it with one tap.
+- AI Accountant: ask your accounts a question in chat and get the answer from Tally Prime. Send a bill photo and it is drafted, approved by the sender and entered into Tally automatically.
+- AI Sales Intelligence: reads every WhatsApp enquiry, judges how serious the lead is, and traces it back to the ad that brought it in, so ads are judged by enquiry quality, not just cost.
+- Petty Cash bot: staff log petty-cash spends, income and hand-overs in a Telegram chat; the bot files each entry by company and cost head and tracks every person's cash balance.
+- Search & AI visibility: a team of AI agents that looks after a brand's discoverability and conversion, including checks on whether AI assistants recommend the brand.
+
+## How a project runs
+Workflow map, written plan, design and build, launch with the team, then ongoing running and improvement. One lead, Suraj Surana, throughout.
+
+## Contact
+- Website: https://bluethreadai.in
+- WhatsApp: +91 73046 48891
+- Email: suraj.surana@gmail.com
+- Instagram: https://www.instagram.com/bluethreadai.in/
