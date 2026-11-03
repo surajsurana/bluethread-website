@@ -3,10 +3,10 @@
 > Bluethread designs and builds entire business systems, not just websites: custom business software, AI agents, automations and websites, connected as one system. Led by Suraj Surana, AI & Business Systems Architect. Serves companies in India, the USA and worldwide, working remotely.
 
 ## What Bluethread builds
-- Custom business software: order, inventory, production and accounts software shaped to how a company runs. Web-based, multi-user, with roles and audit trails.
+- Custom business software: order management, inventory, production and accounts software shaped to how a company runs. Web-based, multi-user, with roles, audit trails and Tally integration.
 - AI systems and AI agents: AI that does a defined job inside a business. Routine work runs on its own; anything involving money, customers or records waits for a person's one-tap approval.
 - Automations: the repetitive work between tools (WhatsApp, Telegram, APIs), such as messages sent, records updated, reports delivered and approvals routed.
-- Websites and online stores: built as the front door of the business system, connected to orders, enquiries and accounts.
+- Websites and online stores: built as the front door of the business system, connected to orders, enquiries and accounts, and built to be found on Google and in AI answers.
 
 ## Systems built and running in operating businesses
 - Stitchflow: order management software for boutiques, fashion designers and bridal studios: orders, measurements, production and customer updates in one place (https://stitchflow.in).
