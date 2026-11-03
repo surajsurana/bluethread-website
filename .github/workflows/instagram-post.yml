@@ -5,7 +5,9 @@ name: Instagram post
 
 on:
   schedule:
-    - cron: "0 13 * * *"     # once a day, 13:00 UTC = 18:30 IST; posts are scheduled for 18:30 IST
+    - cron: "7 13 * * *"     # 18:37 IST, off the top of the hour (GitHub drops :00 runs more often)
+    - cron: "7 14 * * *"     # backup: posts only if the first run never started
+    - cron: "7 15 * * *"     # backup, still inside the 180-min window
   workflow_dispatch:
     inputs:
       dry_run:
