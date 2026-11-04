@@ -23,11 +23,11 @@
       "approved": true,
       "approval_hash": "d678abd793f264f87e54b095d55fc90329b7d73d047c0fc31fe30f15dbf5e10d",
       "approved_at": "2026-11-03T14:38:57+00:00",
-      "status": "pending",
+      "status": "failed",
       "ig_media_id": null,
       "container_id": null,
       "posted_at": null,
-      "error": null
+      "error": "missed its slot by more than 3:00:00; not posted late"
     },
     {
       "id": "2026-11/02-petty-cash-bot",
