@@ -13,7 +13,7 @@
 - Texport: an export ERP for a textile business, from enquiry and order through production and stock to packing, export invoicing and shipping documents (https://texport.co.in).
 - AI Meta Ads system: AI agents plan, monitor and propose changes to Meta ad campaigns. Nothing goes live until a person approves it with one tap.
 - AI Accountant: ask your accounts a question in chat and get the answer from Tally Prime. Send a bill photo and it is drafted, approved by the sender and entered into Tally automatically.
-- AI Sales Intelligence: reads every WhatsApp enquiry, judges how serious the lead is, and traces it back to the ad that brought it in, so ads are judged by enquiry quality, not just cost.
+- AI Sales Intelligence: reads every WhatsApp enquiry, judges how serious the lead is, and traces it back to the ad that brought it in, so ads are judged by enquiry quality, not just cost (https://aisi.bluethreadai.in).
 - Petty Cash bot: staff log petty-cash spends, income and hand-overs in a Telegram chat; the bot files each entry by company and cost head and tracks every person's cash balance.
 - Search & AI visibility: a team of AI agents that looks after a brand's discoverability and conversion, including checks on whether AI assistants recommend the brand.
 
