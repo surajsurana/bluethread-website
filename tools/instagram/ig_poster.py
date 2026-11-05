@@ -11,13 +11,18 @@ Modes:
   --run                Post every item that is due AND approved (used by the workflow).
   --approve MONTH|ID   Mark items approved and lock them with an approval hash.
   --check-token        Read-only: confirm the token can see the Instagram account.
+  --rehearse [ID]      Full rehearsal of the next (or given) post without publishing it.
 
 Safety rules enforced in --run:
   * Only items with approved == true AND a matching approval_hash post. Any edit to
     caption, images, alt text or time after approval breaks the hash, so it will not
     post until it is approved again.
-  * Items post in scheduled order. If an earlier item is not posted, later ones wait.
-  * Items more than max_late_minutes past their time are marked failed, not posted late.
+  * Items post in scheduled order, at most one per run.
+  * An item more than max_late_minutes past its time is not posted late: it and every
+    later item move forward by whole days to the next open slot (logged in
+    queue["postponements"]). Nothing ever blocks the queue.
+  * A failed publish stays pending and is retried by the next run (a later trigger
+    the same evening, or the postponement above).
   * Before publishing, recent account media is checked for the same caption, so a
     re-run after a crash does not double-post.
 
@@ -295,6 +300,36 @@ def cmd_dry_run(q, local):
     return 0
 
 
+def postpone(q, first, now, late_limit):
+    """Move `first` and every later unposted item forward by the same whole number of
+    days, to the first slot that is not already missed. Keeps the daily rhythm and the
+    grid order. A post's approval survives the move only if its content still matches
+    what was approved (hash checked at the old time, then re-locked at the new time)."""
+    t = parse_time(first["scheduled_at"])
+    days = 1
+    while now - (t + dt.timedelta(days=days)) > late_limit:
+        days += 1
+    moved = []
+    for p in ordered(q):
+        if p["status"] == "posted" or parse_time(p["scheduled_at"]) < t:
+            continue
+        intact = p["approved"] and p.get("approval_hash") == approval_hash(p)
+        p["scheduled_at"] = (parse_time(p["scheduled_at"]) + dt.timedelta(days=days)).isoformat()
+        p["status"] = "pending"
+        p["error"] = None
+        if intact:
+            p["approval_hash"] = approval_hash(p)
+        elif p["approved"]:
+            p["approved"] = False  # content changed since approval: never post it unseen
+        moved.append(p["id"])
+    note = (f"{first['id']} missed its slot; it and {len(moved) - 1} later post(s) "
+            f"moved {days} day(s) later")
+    q.setdefault("postponements", []).append(
+        {"at": now.isoformat(timespec="seconds"), "days": days, "posts": moved})
+    print(note)
+    return parse_time(first["scheduled_at"])
+
+
 def cmd_run(q):
     errors = validate(q)
     if errors:
@@ -307,24 +342,18 @@ def cmd_run(q):
         return 1
     now = dt.datetime.now(dt.timezone.utc)
     late_limit = dt.timedelta(minutes=int(q.get("max_late_minutes", 180)))
-    rc = 0
     for p in ordered(q):
         if p["status"] == "posted":
             continue
         t = parse_time(p["scheduled_at"])
-        if p["status"] == "failed":
-            # Already alerted once (the run that marked it failed). Hold quietly.
-            print(f"{p['id']}: failed earlier; later posts wait so the grid order holds.")
-            return 0
-        if t > now:
-            break  # nothing later is due either
+        # A missed slot (or a post that failed on an earlier run and is now past its
+        # window) never blocks the queue: everything moves forward together.
         if now - t > late_limit:
-            p["status"] = "failed"
-            p["error"] = (f"missed its slot by more than {late_limit}"
-                          + ("" if p["approved"] else " (never approved)") + "; not posted late")
+            t = postpone(q, p, now, late_limit)
             save_queue(q)
-            print(f"{p['id']}: {p['error']}")
-            return 1
+        if t > now:
+            print(f"{p['id']}: next post, due {p['scheduled_at']}; nothing to do yet.")
+            return 0
         if not p["approved"]:
             print(f"{p['id']}: due but NOT approved; holding it and everything after it.")
             return 0
@@ -334,17 +363,74 @@ def cmd_run(q):
             media_id = existing or publish(q, p, user, token)
             if existing:
                 print(f"  already on Instagram as {existing}; recording it, not reposting")
-            p.update(status="posted", ig_media_id=media_id, error=None,
-                     posted_at=dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"))
-            print(f"  published: media id {media_id}")
-        except Exception as e:  # noqa: BLE001 - record and fail the workflow
-            p.update(status="failed", error=str(e)[:1000])
-            print(f"  FAILED: {e}")
-            rc = 1
+        except Exception as e:  # noqa: BLE001 - keep it pending so the next run retries
+            p["error"] = str(e)[:1000]
+            save_queue(q)
+            print(f"  FAILED (will retry on the next run): {e}")
+            return 1
+        p.update(status="posted", ig_media_id=media_id, error=None,
+                 posted_at=dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"))
         save_queue(q)
-        if rc:
-            break
-    return rc
+        print(f"  published: media id {media_id}")
+        return 0  # at most one post per run
+    print("queue empty: every post is published")
+    return 0
+
+
+def cmd_rehearse(q, target):
+    """Everything a real post does except the final publish call: validate, check the
+    images are public, have Instagram fetch them into containers, wait until the
+    containers are ready, and confirm the token holds the publish permission.
+    Unpublished containers are never shown and expire on their own after 24 hours."""
+    errors = validate(q)
+    if errors:
+        print("Queue invalid:\n  " + "\n  ".join(errors))
+        return 1
+    user, token = os.environ.get("IG_USER_ID"), os.environ.get("IG_ACCESS_TOKEN")
+    if not user or not token:
+        print("IG_USER_ID / IG_ACCESS_TOKEN not set")
+        return 1
+    pending = [p for p in ordered(q) if p["status"] != "posted"]
+    p = next((x for x in pending if x["id"] == target), None) if target else (pending or [None])[0]
+    if not p:
+        print("no such pending post")
+        return 1
+    if not p["approved"]:
+        print(f"{p['id']}: not approved")
+        return 1
+    me = api("GET", user, {"fields": "username,media_count"}, token)
+    print(f"token OK: @{me.get('username')}, {me.get('media_count')} posts")
+    lim = api("GET", f"{user}/content_publishing_limit",
+              {"fields": "config,quota_usage"}, token).get("data", [{}])[0]
+    print(f"publish permission OK: used {lim.get('quota_usage')} of "
+          f"{(lim.get('config') or {}).get('quota_total')} posts in the last 24 h")
+    if already_published(user, token, p["caption"]):
+        print(f"{p['id']}: already on Instagram")
+        return 1
+    print(f"{p['id']}: building containers ({len(p['images'])} image(s)), not publishing")
+    urls = [image_url(q, r) for r in p["images"]]
+    alts = p.get("alt_text") or [None] * len(urls)
+    for u in urls:
+        s = url_ok(u)
+        if s != 200:
+            print(f"image not reachable ({s}): {u}")
+            return 1
+    if len(urls) == 1:
+        cid = create_image_container(user, token, urls[0], alts[0], {"caption": p["caption"]})
+    else:
+        children = []
+        for u, a in zip(urls, alts):
+            ch = create_image_container(user, token, u, a, {"is_carousel_item": "true"})
+            wait_finished(ch, token)
+            print(f"  image ready: {u}")
+            children.append(ch)
+        cid = api("POST", f"{user}/media", {"media_type": "CAROUSEL",
+                                            "children": ",".join(children),
+                                            "caption": p["caption"]}, token)["id"]
+    wait_finished(cid, token)
+    print(f"  post container {cid} FINISHED: ready to publish. NOT published (rehearsal).")
+    print("REHEARSAL OK")
+    return 0
 
 
 def cmd_approve(q, target):
@@ -382,6 +468,7 @@ def main():
     g.add_argument("--run", action="store_true")
     g.add_argument("--approve", metavar="MONTH_OR_ID", help="e.g. 2026-11 or a post id")
     g.add_argument("--check-token", action="store_true")
+    g.add_argument("--rehearse", nargs="?", const="", metavar="ID")
     ap.add_argument("--local", action="store_true", help="with --dry-run: check local files, not URLs")
     a = ap.parse_args()
     if a.check_token:
@@ -391,6 +478,8 @@ def main():
         return cmd_dry_run(q, a.local)
     if a.approve:
         return cmd_approve(q, a.approve)
+    if a.rehearse is not None:
+        return cmd_rehearse(q, a.rehearse)
     return cmd_run(q)
 
 
