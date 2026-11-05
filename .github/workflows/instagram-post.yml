@@ -3,7 +3,7 @@
 # (Settings > Secrets and variables > Actions > Variables). Unset = every job is skipped.
 #
 # Main trigger: a push to branch ig-tick. A Claude cloud routine runs
-# tools/instagram/tick.sh at 18:32, 19:32 and 20:32 IST; a push starts this job within
+# tools/instagram/tick.sh at 09:32, 10:32 and 11:32 IST; a push starts this job within
 # seconds (GitHub's own schedule ran ~7 hours late on 3-4 Nov). Every run is safe to
 # repeat: the poster posts at most one due item and never the same item twice.
 # A tick whose message contains [rehearse] runs a no-publish rehearsal instead.
@@ -13,7 +13,7 @@ on:
   push:
     branches: [ig-tick]
   schedule:
-    - cron: "7 13 * * *"     # last-resort backup only; often hours late
+    - cron: "7 4 * * *"      # 09:37 IST, last-resort backup only; often hours late
   workflow_dispatch:
     inputs:
       dry_run:

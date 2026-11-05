@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Starts the "Instagram post" workflow by pushing a trigger commit to branch ig-tick.
-# Run by the Bluethread cloud routine at 18:32/19:32/20:32 IST. The trigger commit has
+# Run by the Bluethread cloud routine at 09:32/10:32/11:32 IST. The trigger commit has
 # main's exact files (so the workflow definition is main's), on top of ig-tick, so the
 # push is always a fast-forward. Then it waits until GitHub shows the run, and pushes
 # one more tick if it does not appear. Usage: tick.sh [--rehearse]
