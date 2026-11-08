@@ -92,10 +92,10 @@
       "approved": true,
       "approval_hash": "ea7964ad441506403632cc91280de1c9f8bbb5875959e2f4b816ec1ee7a6a118",
       "approved_at": "2026-11-05T03:42:41+00:00",
-      "status": "pending",
-      "ig_media_id": null,
-      "container_id": null,
-      "posted_at": null,
+      "status": "posted",
+      "ig_media_id": "18035577113893733",
+      "container_id": "17987523938931819",
+      "posted_at": "2026-11-08T04:03:31+00:00",
       "error": null
     },
     {
