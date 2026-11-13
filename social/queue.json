@@ -214,6 +214,292 @@
       "container_id": "17988848798931819",
       "posted_at": "2026-11-13T04:04:28+00:00",
       "error": null
+    },
+    {
+      "id": "2026-12/01-whatsapp-and-spreadsheets",
+      "scheduled_at": "2026-12-02T09:30:00+05:30",
+      "images": [
+        "social/2026-12/01-whatsapp-and-spreadsheets/01.jpg",
+        "social/2026-12/01-whatsapp-and-spreadsheets/02.jpg",
+        "social/2026-12/01-whatsapp-and-spreadsheets/03.jpg",
+        "social/2026-12/01-whatsapp-and-spreadsheets/04.jpg",
+        "social/2026-12/01-whatsapp-and-spreadsheets/05.jpg"
+      ],
+      "alt_text": [
+        "Headline \"Runs on WhatsApp and spreadsheets? Five signs.\" above a demo WhatsApp group chat where a team cannot agree which spreadsheet has the latest order status.",
+        "Five signs: the same question asked every day, three versions of one spreadsheet, one person who knows where things stand, month-end spent scrolling chats, customers asking for updates first.",
+        "\"None of this is a people problem. It is a missing system.\" Chats and spreadsheets were never built to be the record of a business.",
+        "\"The answer is already there when someone asks.\" A diagram linking orders, payments and stock to one system, which gives live order status, WhatsApp updates and month-end reports.",
+        "\"Tell us what slows your business down.\" with the website bluethreadai.in and WhatsApp +91 73046 48891."
+      ],
+      "caption": "Runs on WhatsApp and spreadsheets? Five signs.\n\nThe same question in the group every day. Three versions of one spreadsheet. One person who knows where things stand. Month-end spent scrolling back through chats. Customers asking for updates you don't have yet.\n\nNone of this is a people problem. It is a missing system: one place where orders, payments and updates live, so the answer is already there when someone asks.\n\nSave this for your next team meeting.\n\nStart a project: link in bio, or WhatsApp +91 73046 48891.\n\n#BusinessSystems #BusinessAutomation #WhatsAppBusiness #SmallBusinessIndia #SmallBusinessUSA",
+      "approved": true,
+      "status": "pending",
+      "ig_media_id": null,
+      "container_id": null,
+      "posted_at": null,
+      "error": null,
+      "approval_hash": "3c26f319df02d764340727d1c1f0f515f6011cf284556ebf38f46638acc88984",
+      "approved_at": "2026-11-13T05:29:47+00:00"
+    },
+    {
+      "id": "2026-12/02-ai-accountant-bill-to-tally",
+      "scheduled_at": "2026-12-04T09:30:00+05:30",
+      "images": [
+        "social/2026-12/02-ai-accountant-bill-to-tally/01.jpg",
+        "social/2026-12/02-ai-accountant-bill-to-tally/02.jpg",
+        "social/2026-12/02-ai-accountant-bill-to-tally/03.jpg",
+        "social/2026-12/02-ai-accountant-bill-to-tally/04.jpg"
+      ],
+      "alt_text": [
+        "Headline \"A bill photo becomes a Tally entry. Only after a yes.\" above four steps on a thread: bill photo in the chat, draft entry prepared, sender approves, into Tally at the next sync.",
+        "The four steps explained: send a purchase bill photo in the web chat; a draft with supplier, invoice number and date, amounts, GST and TDS is prepared; the sender approves, edits or rejects it, and nothing is entered before this; once approved it is entered into Tally Prime at the next sync, and the chat shows the voucher number Tally gives it.",
+        "\"Questions in plain English. Answers from Tally Prime.\" Example questions: who owes us the most, how much do we owe our suppliers, which bills are overdue. Tally data syncs a few times a day, and every answer shows the date and time of its data.",
+        "\"Routine answers come straight away. Entries in your books wait for a yes.\" with the website bluethreadai.in and WhatsApp +91 73046 48891."
+      ],
+      "caption": "A bill photo becomes a Tally entry. Only after a yes.\n\nSend a purchase bill photo in the AI Accountant web chat. It prepares a draft entry with the supplier, invoice number and date, amounts, GST and TDS. The person who sent it approves, edits or rejects it. Once approved, it's entered into Tally Prime at the next sync, and the chat shows the voucher number Tally gives it.\n\nAsk questions about your books in plain English too. Tally data syncs a few times a day, and every answer shows the date and time of its data.\n\nStart a project: link in bio, or WhatsApp +91 73046 48891.\n\n#TallyPrime #AIAccountant #AccountingAutomation #SmallBusinessIndia #AIAgents",
+      "approved": true,
+      "status": "pending",
+      "ig_media_id": null,
+      "container_id": null,
+      "posted_at": null,
+      "error": null,
+      "approval_hash": "4ab91159a187cf83d5c913c83e08d85bba5eb8908452b9c9eb0cbd9e25e2ee8d",
+      "approved_at": "2026-11-13T05:29:47+00:00"
+    },
+    {
+      "id": "2026-12/03-petty-cash-owners-view",
+      "scheduled_at": "2026-12-07T09:30:00+05:30",
+      "images": [
+        "social/2026-12/03-petty-cash-owners-view/01.jpg",
+        "social/2026-12/03-petty-cash-owners-view/02.jpg",
+        "social/2026-12/03-petty-cash-owners-view/03.jpg"
+      ],
+      "alt_text": [
+        "Headline \"Who spent what, without asking anyone.\" above a demo Telegram chat where the Petty Cash bot shows this month's expense breakdown by employee for a demo company, with entry counts and a total.",
+        "The owner's view: spend by cost head, spend by employee, every person's cash balance, hand-overs logged in the chat, and every entry filed by company.",
+        "\"No notebooks. No month-end hunt for receipts.\" Staff log spends, income and hand-overs in a Telegram chat. With the website bluethreadai.in and WhatsApp +91 73046 48891."
+      ],
+      "caption": "Who spent what, without asking anyone.\n\nStaff log petty-cash spends, income and hand-overs in a Telegram chat. The Petty Cash bot files each entry by company and cost head, and keeps every person's cash balance.\n\nOwners get a live breakdown by cost head or by employee, straight from the chat. Screens use demo data.\n\nStart a project: link in bio, or WhatsApp +91 73046 48891.\n\n#PettyCash #ExpenseTracking #TelegramBot #SmallBusinessIndia #BusinessAutomation",
+      "approved": true,
+      "status": "pending",
+      "ig_media_id": null,
+      "container_id": null,
+      "posted_at": null,
+      "error": null,
+      "approval_hash": "33422f93b916e87df52b4cf6e1e628347762ef94022950c37279f9c00e63f38c",
+      "approved_at": "2026-11-13T05:29:47+00:00"
+    },
+    {
+      "id": "2026-12/04-what-to-automate-first",
+      "scheduled_at": "2026-12-09T09:30:00+05:30",
+      "images": [
+        "social/2026-12/04-what-to-automate-first/01.jpg",
+        "social/2026-12/04-what-to-automate-first/02.jpg",
+        "social/2026-12/04-what-to-automate-first/03.jpg",
+        "social/2026-12/04-what-to-automate-first/04.jpg"
+      ],
+      "alt_text": [
+        "Headline \"Automate the task your team repeats every single day.\" above six day tiles, Monday to Saturday, joined by one glowing thread: same task, same steps, every day.",
+        "Three tests for a first task: it happens every day, it follows rules someone could write down, and a mistake is cheap to fix.",
+        "Good first candidates: order status updates on WhatsApp, logging expenses and balances, labelling new enquiries, a weekly report built by hand. Keep a person on money, customers and records.",
+        "\"Start small. One task, done well, every day.\" with the website bluethreadai.in and WhatsApp +91 73046 48891."
+      ],
+      "caption": "Automate the task your team repeats every single day.\n\nNot the biggest problem. The most repeated one. A good first task passes three tests: it happens every day, it follows rules someone could write down, and a mistake is cheap to spot and fix.\n\nOrder updates on WhatsApp, logging expenses, labelling new enquiries, the report someone builds by hand every week. Money, customers and records still wait for a person's yes.\n\nStart a project: link in bio, or WhatsApp +91 73046 48891.\n\n#BusinessAutomation #AIForBusiness #Productivity #SmallBusinessIndia #SmallBusinessUSA",
+      "approved": true,
+      "status": "pending",
+      "ig_media_id": null,
+      "container_id": null,
+      "posted_at": null,
+      "error": null,
+      "approval_hash": "37b6c6887dae58acabc5ef6d96577dee424d95fb242e88276ccebdb0d787ddeb",
+      "approved_at": "2026-11-13T05:29:47+00:00"
+    },
+    {
+      "id": "2026-12/05-ai-meta-ads-improvement-ideas",
+      "scheduled_at": "2026-12-11T09:30:00+05:30",
+      "images": [
+        "social/2026-12/05-ai-meta-ads-improvement-ideas/01.jpg",
+        "social/2026-12/05-ai-meta-ads-improvement-ideas/02.jpg",
+        "social/2026-12/05-ai-meta-ads-improvement-ideas/03.jpg"
+      ],
+      "alt_text": [
+        "Headline \"It proposes how to improve itself. A person decides.\" above a demo Telegram message titled Approval needed, a system improvement idea with what, why, evidence, risk and a small test, and Approve, Reject and Hold buttons.",
+        "How it works, five steps on a thread: agents watch the ads, an idea to improve, why plus evidence and risk, a small test first, one tap decides. Approve adds it to the build list, Reject drops it, Hold asks later.",
+        "\"Nothing goes live until a person approves it. One tap.\" Budget and creative changes work the same way. With the website bluethreadai.in and WhatsApp +91 73046 48891."
+      ],
+      "caption": "It proposes how to improve itself. A person decides.\n\nThe AI Meta Ads system doesn't only run campaigns. It also proposes improvements to the way it works: what to change, why, the evidence, the risk and a small test to try first.\n\nApprove adds the idea to the build list. Reject drops it. Hold asks again later. Budget and creative changes work the same way: nothing goes live until a person approves it with one tap. Screens use demo data.\n\nStart a project: link in bio, or WhatsApp +91 73046 48891.\n\n#MetaAds #AIMarketing #AdAutomation #AIAgents #HumanInTheLoop",
+      "approved": true,
+      "status": "pending",
+      "ig_media_id": null,
+      "container_id": null,
+      "posted_at": null,
+      "error": null,
+      "approval_hash": "dfc38a25c24376a7de7bad5f2cfe6c52a4aee762985bdd0ba407c3bdc6152b8b",
+      "approved_at": "2026-11-13T05:29:47+00:00"
+    },
+    {
+      "id": "2026-12/06-routine-runs-money-waits",
+      "scheduled_at": "2026-12-14T09:30:00+05:30",
+      "images": [
+        "social/2026-12/06-routine-runs-money-waits/01.jpg"
+      ],
+      "alt_text": [
+        "Headline \"Routine work runs on its own. Money, customers and records wait for a yes.\" above two panels: runs on its own (reports, enquiry labels, expense logs, checks) and waits for a yes (budget changes, entries in your books, anything a customer sees, payments)."
+      ],
+      "caption": "Routine work runs on its own. Money, customers and records wait for a yes.\n\nThis is the line every Bluethread system is built around. Reports, enquiry labels, expense logs and checks run by themselves. A budget change, an entry in your books or anything a customer will see waits for a person to approve it, often with one tap.\n\nEvery action is logged, so you can always see what ran and who said yes.\n\nStart a project: link in bio, or WhatsApp +91 73046 48891.\n\n#AIAgents #HumanInTheLoop #BusinessAutomation #AIForBusiness #SmallBusinessUSA",
+      "approved": true,
+      "status": "pending",
+      "ig_media_id": null,
+      "container_id": null,
+      "posted_at": null,
+      "error": null,
+      "approval_hash": "e7e5cefb2327fb7013bcd286965aef35ec47ff90e80bd20951297e7189620ae8",
+      "approved_at": "2026-11-13T05:29:47+00:00"
+    },
+    {
+      "id": "2026-12/07-ai-sales-intelligence-labels",
+      "scheduled_at": "2026-12-16T09:30:00+05:30",
+      "images": [
+        "social/2026-12/07-ai-sales-intelligence-labels/01.jpg",
+        "social/2026-12/07-ai-sales-intelligence-labels/02.jpg",
+        "social/2026-12/07-ai-sales-intelligence-labels/03.jpg",
+        "social/2026-12/07-ai-sales-intelligence-labels/04.jpg"
+      ],
+      "alt_text": [
+        "Headline \"Junk, browsing, serious, converted. What each label means.\" above a demo lead quality screen with four WhatsApp enquiries, each with its label and the ad it came from.",
+        "The four labels: junk is only a greeting, small talk or the ad's pre-filled message, with no interest in a product; browsing asked about a product, price, size or availability, with no firm next step; serious booked an appointment, asked to visit, gave an event date, or discussed measurements, budget, payment or delivery; converted placed a real order. Labels are set automatically, and the team can check and correct any label.",
+        "\"Ads judged by the enquiries they bring, not just their cost.\" Demo bars: Ad A brought 40 enquiries with 3 serious, Ad B brought 18 with 8 serious.",
+        "\"Every WhatsApp enquiry, labelled. Ad enquiries traced to their ad.\" with the website bluethreadai.in and WhatsApp +91 73046 48891."
+      ],
+      "caption": "Junk, browsing, serious, converted. What each label means.\n\nAI Sales Intelligence reads every WhatsApp enquiry and labels it. Junk: only a greeting, small talk or the ad's pre-filled message, with no interest in a product. Browsing: asked about a product, price, size or availability, with no firm next step. Serious: booked an appointment, asked to visit, gave an event date, or discussed measurements, budget, payment or delivery. Converted: placed a real order.\n\nEnquiries from ads are traced back to the ad that brought them in, so an ad with fewer but more serious enquiries can beat a cheaper one. Labels are set automatically. The team can check and correct any label. Screens use demo data.\n\nStart a project: link in bio, or WhatsApp +91 73046 48891.\n\n#WhatsAppBusiness #LeadQuality #SalesAutomation #MetaAds #AIAgents",
+      "approved": true,
+      "status": "pending",
+      "ig_media_id": null,
+      "container_id": null,
+      "posted_at": null,
+      "error": null,
+      "approval_hash": "7b577a6eb78f98003ebb443460d137bd7c85d39ff744c6773cca17109ed9c01e",
+      "approved_at": "2026-11-13T05:29:47+00:00"
+    },
+    {
+      "id": "2026-12/08-write-it-down-first",
+      "scheduled_at": "2026-12-18T09:30:00+05:30",
+      "images": [
+        "social/2026-12/08-write-it-down-first/01.jpg",
+        "social/2026-12/08-write-it-down-first/02.jpg",
+        "social/2026-12/08-write-it-down-first/03.jpg",
+        "social/2026-12/08-write-it-down-first/04.jpg",
+        "social/2026-12/08-write-it-down-first/05.jpg"
+      ],
+      "alt_text": [
+        "Headline \"Write these down before you ask anyone to build software.\" above a six-item checklist: the job in one sentence, how it is done today, what goes in and what comes out, the exceptions, who approves what, what done looks like.",
+        "Items 1 to 3 explained: the job in one sentence; how it is done today, step by step; what goes in and what comes out.",
+        "Items 4 to 6 explained: the exceptions, such as returns and part payments; who approves anything that touches money, customers or records; what done looks like a month later.",
+        "\"Good software starts on paper, not in code.\" These notes turn a first call into a written plan.",
+        "\"Have your six answers? Send them over.\" with the website bluethreadai.in and WhatsApp +91 73046 48891."
+      ],
+      "caption": "Write these down before you ask anyone to build software.\n\n1. The job, in one sentence.\n2. How it is done today, step by step.\n3. What goes in and what comes out.\n4. The exceptions.\n5. Who approves what.\n6. What done looks like.\n\nAn hour on these notes saves weeks of back and forth, with any builder. Save this for when you need it.\n\nStart a project: link in bio, or WhatsApp +91 73046 48891.\n\n#CustomSoftware #BusinessSystems #DigitalTransformation #SmallBusinessIndia #SmallBusinessUSA",
+      "approved": true,
+      "status": "pending",
+      "ig_media_id": null,
+      "container_id": null,
+      "posted_at": null,
+      "error": null,
+      "approval_hash": "42659795dec56d6dab1b53e4e45187990ed308663ad0d2a9036076b4ff68b8f4",
+      "approved_at": "2026-11-13T05:29:47+00:00"
+    },
+    {
+      "id": "2026-12/09-ai-agents-log",
+      "scheduled_at": "2026-12-21T09:30:00+05:30",
+      "images": [
+        "social/2026-12/09-ai-agents-log/01.jpg",
+        "social/2026-12/09-ai-agents-log/02.jpg",
+        "social/2026-12/09-ai-agents-log/03.jpg"
+      ],
+      "alt_text": [
+        "Headline \"A morning in the agents' log. Every action recorded.\" above a demo agent log: a weekly ads report sent, 12 enquiries labelled, a bill drafted and a budget change proposed (both asked a person), the bill approved and entered in Tally, and an AI visibility check run.",
+        "What every log line holds: when, which agent, what it did, who said yes, and the result.",
+        "\"If an agent did it, you can see it.\" Each agent does only the job it is given. With the website bluethreadai.in and WhatsApp +91 73046 48891."
+      ],
+      "caption": "A morning in the agents' log. Every action recorded.\n\nReports sent, enquiries labelled, a bill drafted and waiting, a budget change proposed and waiting. Routine work runs on its own. Money, customers and records wait for a yes.\n\nEach line says when it happened, which agent did it, what it did, who said yes and what came of it. If an agent did it, you can see it. Screens use demo data.\n\nStart a project: link in bio, or WhatsApp +91 73046 48891.\n\n#AIAgents #AIForBusiness #BusinessAutomation #HumanInTheLoop #SmallBusinessUSA",
+      "approved": true,
+      "status": "pending",
+      "ig_media_id": null,
+      "container_id": null,
+      "posted_at": null,
+      "error": null,
+      "approval_hash": "402649c67c664ea224b7830e7243cf4792532d8c6822f80f773205a54083a0ac",
+      "approved_at": "2026-11-13T05:29:47+00:00"
+    },
+    {
+      "id": "2026-12/10-the-written-plan",
+      "scheduled_at": "2026-12-23T09:30:00+05:30",
+      "images": [
+        "social/2026-12/10-the-written-plan/01.jpg",
+        "social/2026-12/10-the-written-plan/02.jpg",
+        "social/2026-12/10-the-written-plan/03.jpg",
+        "social/2026-12/10-the-written-plan/04.jpg"
+      ],
+      "alt_text": [
+        "Headline \"What goes in the written plan. Before anything is built.\" above a plan outline: how your team works today, what the system will do, what it connects to, what waits for approval, build order and launch.",
+        "Step 1, the workflow map: \"First, a map of how work actually moves.\" A row of steps from enquiry to invoice with production marked as where things get stuck.",
+        "Step 2, the written plan, section by section: how your team works today, what the system will and will not do, what it connects to, what waits for approval, build order and launch.",
+        "\"A short call, then a written plan. No obligation.\" Every project is led by Suraj Surana. With the website bluethreadai.in and WhatsApp +91 73046 48891."
+      ],
+      "caption": "What goes in the written plan. Before anything is built.\n\nEvery Bluethread project starts with a workflow map: how work actually moves through your team today, and where it gets stuck. Then a written plan you can read and question.\n\nThe plan covers how your team works today, what the system will do, what it connects to, what waits for a person's approval, and the order it will be built and launched in.\n\nStart a project: link in bio, or WhatsApp +91 73046 48891.\n\n#BusinessSystems #CustomSoftware #DigitalTransformation #SmallBusinessIndia #SmallBusinessUSA",
+      "approved": true,
+      "status": "pending",
+      "ig_media_id": null,
+      "container_id": null,
+      "posted_at": null,
+      "error": null,
+      "approval_hash": "1a028ef5357974a546bc5cf3de3d4c26bbba6a1b3cb4f52598d2da3891517ea6",
+      "approved_at": "2026-11-13T05:29:47+00:00"
+    },
+    {
+      "id": "2026-12/11-one-record",
+      "scheduled_at": "2026-12-28T09:30:00+05:30",
+      "images": [
+        "social/2026-12/11-one-record/01.jpg"
+      ],
+      "alt_text": [
+        "Headline \"A sale, an invoice and a WhatsApp message. One record.\" above a demo order record whose timeline shows the order placed, the invoice created, a WhatsApp update sent to the customer, and the payment recorded after approval by accounts."
+      ],
+      "caption": "A sale, an invoice and a WhatsApp message. One record.\n\nIn most businesses these live in three places: the order in a sheet, the invoice in accounts, the update on someone's phone. Bluethread builds them as one connected system, so each step updates the same record and anyone can see where an order stands.\n\nEntire business systems, not just websites. Screen uses demo data.\n\nStart a project: link in bio, or WhatsApp +91 73046 48891.\n\n#BusinessSystems #BusinessAutomation #CustomSoftware #SmallBusinessIndia #SmallBusinessUSA",
+      "approved": true,
+      "status": "pending",
+      "ig_media_id": null,
+      "container_id": null,
+      "posted_at": null,
+      "error": null,
+      "approval_hash": "989970c1bbd37c3c68631e74a5eb7ccc36e02c0284cdb8283182005464fe674d",
+      "approved_at": "2026-11-13T05:29:47+00:00"
+    },
+    {
+      "id": "2026-12/12-two-industries",
+      "scheduled_at": "2026-12-30T09:30:00+05:30",
+      "images": [
+        "social/2026-12/12-two-industries/01.jpg",
+        "social/2026-12/12-two-industries/02.jpg",
+        "social/2026-12/12-two-industries/03.jpg",
+        "social/2026-12/12-two-industries/04.jpg"
+      ],
+      "alt_text": [
+        "Headline \"Two industries. Two systems built around how they actually work.\" above two entries: Stitchflow, a SaaS product for boutiques, fashion designers and bridal studios (stitchflow.in), and Texport, a custom ERP for a textile export business (texport.co.in).",
+        "Stitchflow: order management software for boutiques, fashion designers and bridal studios, with a diagram from orders, measurements and customers to production, WhatsApp updates and reports.",
+        "Texport: an export ERP for a textile business, with a diagram from buyer orders, products and suppliers to commercial invoices, packing lists and order status.",
+        "\"Different trades. Same method.\" Start with how the team actually works. With the website bluethreadai.in and WhatsApp +91 73046 48891."
+      ],
+      "caption": "Two industries. Two systems built around how they actually work.\n\nStitchflow: order management software for boutiques, fashion designers and bridal studios. Orders, measurements, production and customer updates in one place. stitchflow.in\n\nTexport: an export ERP for a textile business, from enquiry and order through production and stock to packing, export invoicing and shipping documents. texport.co.in\n\nDifferent trades, same method: start with how the team actually works, then build the system around it.\n\nStart a project: link in bio, or WhatsApp +91 73046 48891.\n\n#BusinessSystems #CustomSoftware #ERP #FashionBusiness #TextileExport",
+      "approved": true,
+      "status": "pending",
+      "ig_media_id": null,
+      "container_id": null,
+      "posted_at": null,
+      "error": null,
+      "approval_hash": "38bfe380e47c78429cc4e695e22b1ce8dfac8e2b7076bd09f806d831eb79a67c",
+      "approved_at": "2026-11-13T05:29:47+00:00"
     }
   ],
   "postponements": [
